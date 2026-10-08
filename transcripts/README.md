@@ -11,6 +11,8 @@ This directory contains raw transcripts supplied in the research chat.
 | 64 | [64-cross-model-15-to-15plus.txt](64-cross-model-15-to-15plus.txt) | iPhone 15 A3 installed on 15 Plus; temporary boot behavior, restore checkpoint 131D/TSS refusal | Preserved |
 | 65 | [65-p2027-vs-sn2027.txt](65-p2027-vs-sn2027.txt) | P2027 experiment; Apple/Finder refusal, ROM transfer requirement, 3uTools succeeds after matching ROM | Preserved |
 
+| 66 | [66-decrypted-unidentified-a3-chip.txt](66-decrypted-unidentified-a3-chip.txt) | AliExpress "decrypted" SN2027 A12; works immediately, Apple restore succeeds, PortDFU identity appears blank, manual DFU fails but MacVDM can force DFU | Preserved |
+
 ## Notes
 
 Video numbering 61–65 follows the numbering supplied by the user in the research chat. Raw transcript wording is preserved as supplied, including transcription errors and timestamps.
