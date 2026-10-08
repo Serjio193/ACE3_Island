@@ -1,0 +1,523 @@
+Hi everyone. So we're now moving on to
+0:03
+the next experiment which is uh taking
+0:08
+this iPhone 15 Plus. This is the one
+0:12
+that from the previous video that was
+0:14
+restored after I blanked the ROM and
+0:17
+everything and it was reflashed uh by
+0:20
+Apple during the restore process. So,
+0:23
+taking the A3 from this 15 plus and
+0:26
+putting it on this 15 plus and see if it
+0:30
+works or if it doesn't work. Uh, what
+0:35
+what are the problems? Um,
+0:38
+so this one I've already prepared it.
+0:40
+You see, I've removed the A3. It was an
+0:43
+SN. So, this one is an SN and this one
+0:46
+already also had an SN. So I'm replacing
+0:50
+basically
+0:51
+the A3 chip from the set one model to
+0:55
+the same model and using the same
+0:58
+revision of the chip. All right. So uh
+1:02
+let's let's do that.
+1:12
+So
+1:22
+Okay.
+1:46
+All
+2:02
+right. So, the chip is removed.
+2:05
+Now, let's reball it very quickly.
+2:18
+So first clean it.
+3:30
+Uh apply the stencil.
+3:52
+Apply the solder paste.
+4:18
+Re ball.
+4:45
+Great.
+4:50
+Remove the stencil
+4:53
+reflow.
+5:09
+Always clean your stencils before doing
+5:11
+anything else
+5:17
+so that it's ready to be used next time.
+5:39
+And then put the chip on this board.
+6:16
+So, of course, when I solder on, it's
+6:19
+going to get into position, but I might
+6:21
+as well try to place it as well as
+6:24
+possible.
+6:26
+Okay.
+7:08
+Okay, got the little bounce. So, it
+7:10
+should be good.
+7:13
+And uh now
+7:17
+what should we expect?
+7:20
+So
+7:22
+obviously we should have like USB should
+7:26
+not be working right away because uh the
+7:29
+ROM is not matched to the to the ACE to
+7:33
+the ACE chip.
+7:36
+But in the best case scenario, what I
+7:38
+can hope for is that the same thing as
+7:41
+in the last video happens, which is I I
+7:45
+will be able to flash the device and
+7:47
+during the during the restore, Apple
+7:50
+will provide me with the correct
+7:52
+firmware for the A3 and it will be uh it
+7:55
+will be flashed onto onto the ROM and
+7:58
+after the restore process uh I will get
+8:01
+a working device. This is my
+8:04
+expectation. coming from the from the
+8:07
+previous video. So,
+8:11
+yeah, should be cool enough. I can hold
+8:13
+it now.
+8:21
+So, let's see if this works.
+8:44
+My my eyes are not very good aligning
+8:46
+this by
+8:55
+sometimes I have trouble aligning these
+8:58
+connectors. There's There you go. It's
+9:00
+in.
+9:07
+Let's align the Let's uh install the
+9:09
+ambient light sensor.
+10:03
+All right.
+10:08
+Put a screw in to hold the board in
+10:11
+place so that it doesn't move.
+10:37
+Connect the back glass. There you go.
+10:41
+And
+10:46
+try to power it on
+10:49
+and connect it to the computer.
+10:58
+Well, immediately let me So here you can
+11:02
+see that the Apple appears and I can
+11:05
+show you my desktop. Immediately my Mac
+11:08
+has detected an iPhone in DFU mode. So
+11:11
+now we were used to this. The the phone
+11:14
+is actually in port DFU mode, but it is
+11:18
+not in DFU mode. As you can see here, it
+11:22
+is actually booted. Do I have touch?
+11:26
+Nope. I don't have touch. Uh but if I
+11:29
+tried with the aftermarket screen, which
+11:32
+I I didn't do here because we've already
+11:34
+done this experiment, uh I would get
+11:37
+touch.
+11:39
+So if this phone was a phone that we
+11:43
+needed data for, we would be able to get
+11:46
+data through using this screen because
+11:49
+we would get touch and then we would be
+11:51
+able through Wi-Fi to make an iCloud uh
+11:53
+backup or or whatever.
+11:56
+Uh so now my phone appears in the FU
+12:02
+mode. Let me let me mirror my my
+12:05
+desktop. So there we go. We're going to
+12:08
+flash it. But before this, I want to try
+12:10
+and show you uh what what it shows in 3
+12:14
+tools. It also shows that it's an iPhone
+12:17
+15 plus in the FU mode. The EC ID here
+12:23
+uh it is
+12:25
+actually diff different from the
+12:28
+previous one. So, let me see if I can if
+12:31
+we can find the previous one. We should
+12:33
+be able to find this in the in the log.
+12:36
+I'm not sure. I I can't remember if the
+12:38
+EC ID shows up
+12:40
+here.
+12:44
+Yes. Okay.
+12:46
+So, that is interesting because
+12:50
+the ECID
+12:52
+is actually
+12:55
+wait DBD5
+12:58
+six. Yeah, the EC ID is actually the
+13:01
+same as on the previous phone even
+13:05
+though it's not the same phone. So, does
+13:08
+it mean somehow that the ECID is inside
+13:11
+the
+13:13
+is actually burned inside the A3 chip?
+13:16
+Hey, that's interesting to notice. So,
+13:19
+anyway, so let's flash
+13:22
+let's flash this
+13:29
+Oh, damn it. Uh, sometimes I do have to
+13:31
+restart the finder.
+13:38
+All right, let's restart it.
+13:43
+Okay, hopefully this time,
+13:52
+yes, this time it works. So, let's flash
+13:54
+it.
+14:20
+God might
+14:27
+Glory.
+15:36
+All All right. So, the restore went
+15:38
+through without without a problem. Uh,
+15:43
+if you took a if you looked at what I
+15:46
+was doing when
+15:48
+while it was happening. So, I I did
+15:50
+Google uh what ECID means because it's
+15:53
+something that I I knew it was some kind
+15:55
+of identifier, but I I didn't know what
+15:57
+it meant. So, uh it's the exclusive chip
+16:02
+identifier. So
+16:05
+it's another way to identify your phone.
+16:08
+And uh you also may have noticed that I
+16:11
+was going through uh 3U tools because in
+16:15
+3u tools I can read directly the ECID
+16:18
+and you can see that here in device
+16:22
+details the EC ID is now this one which
+16:27
+is different from the one that was
+16:29
+showing up before when the phone was in
+16:31
+port DFU mode.
+16:34
+uh the one that that was registered when
+16:38
+I connected the phone to the computer
+16:40
+was this one.
+16:43
+So
+16:45
+this
+16:48
+uh I don't know how to explain it
+16:55
+because remember that was another 15
+16:58
+plus and the only thing that came from
+17:01
+the previous one was the ACE controller.
+17:03
+So putting the ACE controller from the
+17:07
+from the first 15 plus onto this second
+17:10
+15 plus had the effect of also carrying
+17:13
+over the ECID. So somehow this number
+17:18
+was inside the chip.
+17:22
+But now that the chip has that the chip
+17:26
+has had its firmware flashed and now
+17:28
+that it's booted completely, uh it seems
+17:31
+like my computer is able to access the
+17:33
+ECID, the real ECID of the of the phone,
+17:37
+which is the one that's written um
+17:40
+probably inside the inside the
+17:41
+processor.
+17:43
+And as you can see, let me let me change
+17:47
+the view. As you can see, I have touch
+17:50
+working and obviously uh I was able to
+17:53
+show you in 3 tools that we had USB USB
+17:56
+communication. So, for all intents and
+18:00
+purposes, this phone seems to work uh
+18:04
+absolutely normally and it can flash
+18:07
+normally despite the fact that I took
+18:09
+the Ace chip from another another
+18:12
+device. And you may notice, you notice,
+18:14
+and I insist on this, I did not I did
+18:16
+not move the ROM
+18:19
+because the previous experiment showed
+18:22
+me that normally the ROM is flashed
+18:24
+during the restore process.
+18:27
+So, uh, one last thing that I want to
+18:31
+check, it's still this ECID thing. If I
+18:33
+put the phone now in uh in in DFU mode,
+18:41
+what is the EC ID that is going to show
+18:44
+up? Is it the one for this phone or is
+18:46
+it the one for the previous one?
+18:53
+So,
+19:01
+so first I want to put it in recovery
+19:04
+mode and see
+19:08
+see what I'm getting.
+19:12
+So, three tools
+19:16
+recovery mode. So, ECID is still the new
+19:19
+one. Okay,
+19:22
+now I'm going to see in DFU mode, which
+19:26
+is actually going to be port DFU.
+19:31
+1 2 3 4 5 6.
+19:44
+Okay, I'm getting a DFU device showing
+19:47
+up and
+19:51
+There you go. The EC ID is actually the
+19:55
+one from the older phone.
+19:58
+So,
+20:03
+so is is that important or is it not? I
+20:07
+don't know. But
+20:10
+basically here we have a device that is
+20:13
+not functioning normally.
+20:16
+uh even though when from the macroscopic
+20:19
+point of view when you're trying to use
+20:20
+it in everyday life it will work
+20:22
+normally it will you have touch you have
+20:25
+USB communication you can charge uh you
+20:30
+can flash the phone you can restore it
+20:31
+you can you can update it but
+20:36
+it now has a trace of the previous uh
+20:41
+motherboard that it was coming from. So
+20:43
+this proves to us that the ACE chip is
+20:46
+actually personalized to the device that
+20:51
+it comes from.
+20:54
+So, but it doesn't seem to matter in
+20:57
+this particular instance where we take
+21:00
+the chip from one model to the same
+21:03
+model and uh using the same revision
+21:07
+meaning that uh I replaced an SN by an
+21:10
+SN
+21:13
+but yeah so I don't know if I'm the
+21:17
+first person to discover this or because
+21:20
+I've never seen anyone mention it And I
+21:23
+don't know if it's important or not, but
+21:26
+this shows that Apple has a way to know
+21:28
+that the ACE chip has been changed
+21:32
+because it could simply
+21:34
+like compare the ECID in port DFU mode
+21:38
+and the ECID when the when the A3 is
+21:41
+booted, it might notice a discrepancy
+21:43
+and it might refuse to make to to flash
+21:48
+this phone in the future. So right now
+21:51
+we're what were May 26
+21:54
+uh Apple lets us do this
+21:57
+but we are not sure that they will let
+21:59
+us do it in the future.
+22:02
+So
+22:04
+that's basically it. So thank you for
+22:07
+watching and see you in the next one.
+22:09
+The next one will be what it will be.
+22:11
+Well, this time I'm going to take uh
+22:16
+here I have this 15
+22:19
+I mean I have this 15 motherboard from
+22:22
+which I took the Ace chip. I showed it
+22:24
+to you a couple videos earlier. I'm
+22:27
+going to put it on the 15 plus and we're
+22:29
+going to see what happens.
+22:32
+Thank you for watching.
