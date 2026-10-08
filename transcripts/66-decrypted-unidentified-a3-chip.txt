@@ -1,0 +1,233 @@
+Hi, welcome back. So, this should hopefully be  the last the last experiment that we're making  
+0:07
+with these chips. And uh so what we're going to  do now is try to install that guy here. Purchase  
+0:14
+from AliExpress that says decrypted chip  installed can charging untouching directly.
+0:23
+I would make a joke about  the leing center, but it's
+0:29
+um so we're going to install them on our 15 plus  board. Uh they're here. Uh what to say? So this  
+0:43
+is the like the very original one and I did  I did flashback the original ROM into it. So,  
+0:51
+you know, so that we get everything as  stock as possible. So, let's let's do this.
+1:27
+So there's our guy. What does it say?
+1:34
+So it says uh so SN2027 A12 and my original  one is this one here. It also says A12. So  
+1:49
+it is it seems to be the exact same revisions  but of course it is a different chip. So, uh,
+2:03
+let's install it.
+3:38
+So the expected behavior would be no charging,  uh, no touch, no USB communication. Let's see.
+5:23
+All right,
+5:31
+let me give you my desktop.
+5:40
+see the finder window. See what it says
+5:51
+and connect it to the computer.
+6:01
+So right now normally if the chip was not accept  if the chip was not able to boot we would have  
+6:07
+uh DFU device that that appears on the  in the finder and that is not the case.
+6:16
+We have you I don't know if you can see but  we have charging here the I mean we have the  
+6:21
+charging icon that turns on. So there is  a response to connecting it. touch works.
+6:29
+And uh let's see what uh I'm curious  to see what 30 tools says about it.
+6:41
+So USB communication works.  Serial number is correct. And uh
+6:52
+EC ID I believe should is  the correct one. And uh now
+7:01
+I'm curious to see what the ECID  of the chip is. And after that,  
+7:08
+we're going to see if it if uh Apple accepts  uh to flash it. So, I'm uh two, three, four,  
+7:21
+five, six. I'm trying to put it in DFU  mode so I can read the the A3's ECID.
+7:33
+Uh so, that apparently didn't work. So, I  I must have missed my timing on the DFU.
+7:48
+No, it doesn't want to turn on anymore.
+8:04
+Oh, wait. I have here iPhone shows up. Oh. Uh,  
+8:12
+so it doesn't want to turn on.  Let's try again to force reboot it.
+8:30
+So it is rebooting.
+8:49
+All right. So, this seems to be stuck  again. So, I'm going to relaunch the finder.
+9:09
+So the iPhone is detected again. So  let's try again to put it in the FU mode.
+9:24
+One, two, three, four, five, six.
+9:40
+So, either I'm messing up my timing or it  really doesn't want to go into DFU mode.
+9:50
+I'm going to try again.
+10:10
+So, I'm going to try this time going to put  
+10:12
+it first in recovery and then try to  go into DFU for recovery. We'll see.
+10:26
+All right.
+10:31
+And
+10:39
+one, two, three, four, five, six.
+10:49
+Nope. it really doesn't want to go into DFU.  So, this ACE chip doesn't accept the DFU
+11:00
+uh the DFU button sequence apparently.  Uh okay. Well, let's let's flash it.
+11:15
+Heat.
+11:29
+Heat.
+11:44
+Heat.
+11:48
+Heat.
+12:16
+Heat. Heat.
+12:34
+Heat. Heat.
+12:52
+Okay, so the phone restores successfully. Touch  works. Uh you must have seen that I tried with to  
+13:02
+detect it with three tools and USB communication  seems to work. It seems to be charging. So the  
+13:07
+flash went through without a problem. Uh, and  I don't know where this chip where this chip  
+13:14
+comes from. So now I'm gonna now that it was  flashed, maybe it was a firmware like um a ROM  
+13:22
+firmware problem that prevented it from going  to DFU. So let's try again. And if I can't put  
+13:26
+it into DFU manually, I'm going to try to put it  in DFU from uh from this Mac using Mac VDM tool.
+13:46
+One. 2 3 4 5 6.
+13:59
+No. So, it definitely doesn't want to go into  DFU mode. So, I don't know what these chips do.  
+14:07
+They seem to work perfectly for USB and for for  touch. They don't they they work immediately as  
+14:16
+in as soon as they're installed, but they  don't want to uh to put to go into DFU. So
+14:32
+here uh I'm going to mirror this  screen here. So first turn it off.
+14:53
+Wait a few seconds for it to be completely  off and see if I can. All right.
+15:10
+All right. So now, okay. So  I was able to force the chip  
+15:15
+in the FU mode. So I'm going to  go back to my normal computer.
+15:27
+All right. So, let's uh this I I don't  need hopefully I don't need anymore. So,
+15:44
+stop mirroring. Let's put this away.
+15:54
+and uh turn this off. All right.  So now the chip is in DFU mode.  
+16:03
+Let's see if it has an ECID or  Yeah. So the chip has absolutely  
+16:11
+no information about it. And that is  maybe what makes it work with any ROM.
+16:22
+like okay so that is really interesting. Uh,  
+16:27
+so since it has no device  info, I'm pretty much expecting
+16:37
+that it won't be able like if I try  to give it an 15 plus uh firmware,  
+16:45
+it won't go through. But let's try this.
+17:05
+Heat. Heat.
+17:14
+Heat
+17:27
+up
+17:30
+here.
+17:50
+Heat.
+17:57
+Heat.
+18:03
+Heat.
+18:16
+Heat.
+18:38
+All right. So, uh I was able to  to restore it successfully. And  
+18:45
+uh I'm going to try one last time to put it  manually into DFU mode. If maybe something  
+18:51
+happened during this flash, we'll we'll see.  And if it doesn't work, we'll call it a day.
+19:04
+One, two, three, four, five, six.
+19:17
+Yeah. So it doesn't work. So
+19:24
+So I'm not spending more time on this. I believe  more we more or less have an idea of uh what's  
+19:30
+happening with these chips. So uh they seem to  be a pretty good compromise because apparently  
+19:36
+you install them and they work right away with uh  with what's already on the phone. You don't need  
+19:42
+to to reflash the to flash the device. you don't  need to transfer any ROM or program any ROM. So,  
+19:53
+uh and and then the device works. There's only  one issue which is and and the device works and  
+19:58
+it can flash through Apple which is uh actually  the important part. Uh the only issue is that  
+20:06
+you cannot put it in DFU mode manually. Uh the  device will will will refuse. So most probably  
+20:17
+it it is due to what we just saw that this chip  has absolutely no identification and somehow the  
+20:24
+system must not like this. However, using Mac  VDM tool as I just did with my other MacBook  
+20:31
+uh I am able to force the device into DFU mode  and then uh flash it. So the I mean the ability  
+20:38
+to get to DFU mode is important for multiple  reasons because first of all because sometimes  
+20:45
+um the device will not flash from  restore mode but will flash from DFU  
+20:51
+mode because there's a problem with the  IB boot or or something like this. Um,
+21:00
+and also if you want to upgrade, for example,  the SSD on a phone, uh, the new upgrade the NAND,  
+21:10
+uh, you will have to flash from DFU mode  because since since the NAND has been replaced,  
+21:15
+the new NAN doesn't have the correct IB boot and  then the phone will start automatically in DFU  
+21:21
+mode and request a flash. But if you cannot  detect it in the FU mode from the computer  
+21:27
+because the chip itself refuses to go into port  DFU. So basically the device would be will be in  
+21:33
+DFU mode because it has no NAND but the chip will  not be in port DFU and therefore will not accept  
+21:41
+uh an OS. But using Mac VDM tool like I just  did, you will be able to force the chip into  
+21:48
+DFU mode and then force an update. This is what  I I didn't try it, but this is basically how I  
+21:53
+think it it it will happen if you want to upgrade  the storage on your on your iPhone. So, I mean,  
+22:01
+of course, this is just a test done in uh what in  in 40 minutes. Uh the device is iCloud locked, so  
+22:09
+I cannot check that everything works perfectly as  it should. But I mean there is no reason there's  
+22:16
+nothing that indicates that there's an issue. The  only issue that was noticeable was the inability  
+22:20
+for the chip to go into ports DFU, but this can  be circumvented through the MAC VDDM tool. So,  
+22:30
+so far this seems to be the best solution  if you if you do not have a donor board  
+22:37
+from the same model and with the same chip  revision. Remember, we we just saw that PS  
+22:44
+and SNS cannot be swapped. So uh basically  same same model same revision seems to work  
+22:51
+uh without any problem and with these chips from  AliExpress which are which claim to be unencrypted  
+22:58
+uh everything works except that you have to  force DFU using uh MACVDM tool. So anyway  
+23:08
+that's all I got for to for you today  and uh thank you thank you for watching.
