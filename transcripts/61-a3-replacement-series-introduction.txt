@@ -1,198 +1,45 @@
+# Video 61 — A3 replacement series: scope and test matrix
 
-Поиск по видео
-0:00
-Hi everyone. Uh so it's been a while. So today  I would like to do a little series about A3  
-0:10
-controllers on U A3 controller replacement on  iPhones. So uh why on why on iPhones? Uh the  
-0:21
-obvious reason is that the iPhone only has one  A3 controller whereas uh the a MacBook has three  
-0:33
-or four controllers which makes it like a more  difficult problem to to approach because when  
-0:40
-when we want to understand how to replace  these um how to replace these these chips  
-0:49
-uh question. Natural questions will be,  oh, so if they have the same number,  
-0:55
-can we replace them? This is one of the questions  that we have. If they come if they do they have  
-1:01
-to come from the same model, do they have to  come from the same model and same position  
-1:06
-uh etc. So the these questions are irrelevant  on iPhones because the iPhone only has one. So  
-1:12
-there's only one position and uh basically what  we want to know is can I swap? So, for example,  
-1:20
-here I have an iPhone 15 Plus, and this is what  I'm going to to use as a as a guinea pig. Uh,  
-1:27
-can I can I use an A3 from from a 15 plus? Is  it going to work? And then can I use an A3 from  
-1:35
-a 15? Is it going to work? 15 Pro, 15 Pro Max, ex  16, etc. So this is obviously much easier because  
-1:47
-there's only one controller and one position. So  this is the first uh the first reason uh easier  
-1:54
-to approach. Second reason is cost. Uh acquiring a  working MacBook that has an A3 controller this so  
-2:06
-these are like 2 years old. It is very expensive.  If you want to get just a working board that is  
-2:17
-that will be most likely iCloud locked, this  will this will net you in the like 100 to€300.
-2:27
-And uh of course you will need at least two of  those in order to do your swaps. So cost is a  
-2:36
-major issue. However, like I was recently able  to acquire a working 15 plus iCloud locked for  
-2:45
-uh for €100. And the important thing about this  one is that uh the parts inside are original. And  
-2:53
-this is going to be relevant uh later on in this  series, especially the fact that the screen is  
-3:01
-the original screen. So, this is cheap. And donor  boards. Well, you know, I was able to acquire all  
-3:11
-these donor boards. There's maybe like six of them  for €15 a piece. There are some that come from 15,  
-3:17
-some from 15 plus. So these are cheap and  it's therefore it's easier to do research on  
-3:25
-uh on these devices just because I don't have  infinite funds and uh the third reason would be  
-3:35
-that um there is a lot of how should I say  like misinformation about these operations  
-3:48
-uh in in the repair community or maybe I didn't  look hard enough but right now every single day  
-3:56
-on if you look on any Facebook group or like  repair group that is dedicated to uh logic board  
-4:04
-logic board repair you will have every single day  a person who's asking oh I got uh say I have this  
-4:11
-iPhone 16 the A3 controller is defective I have to  replace it but oh I don't have Uh, I don't have a  
-4:19
-16 donor board, but I have a 15 donor board. Uh,  can I use my A3 from the 15 in order to replace  
-4:27
-the defective one on the 16? And oh, do I have to  replace the the ROM also? So, every single day you  
-4:36
-have the you have questions of these types and  like the answers are usually very muted or you  
-4:43
-will have someone who thinks they know what  they're doing and they will say, "Oh, yeah,  
-4:47
-sure. you can do it. But what I'm going to show is  that this is actually not uh not completely true.  
-4:56
-And if you want a fully working device, uh these  chips cannot be just swapped uh like that. So,
-5:09
-and I I guess I guess where this misinformation  comes from is that most probably people don't do  
-5:16
-their own research. Like people are lazy. They  see someone who has some form of authority in  
-5:22
-the in the Reaper community who says, "Oh, you  can do this." And then they just believe it and  
-5:28
-then they repeat it and they but they don't  know better. So we're going to see that the  
-5:37
-problem is actually quite complex and there are  some swaps that you will do. They seem to work.  
-5:45
-Everything will seem to work but in fact uh if  you dig a little deeper it doesn't there are  
-5:52
-big problems. So this is the third reason.  So basically what what we're going to do,  
-6:00
-we have here a working uh 16 15 plus. We also  have a working 15 plus uh board here. And I'm  
-6:13
-going to address a few things and one would be  well say can I replace the the A3 controller  
-6:24
-from this 15 plus using the one from this  one and is it still going to work? Uh,  
-6:31
-can I do I have to do I have to swap the ROM also  or can I just replace the ACE controller or are  
-6:39
-there are there limitations to just replacing  the ACE controller? This is one of the first  
-6:45
-questions that that's natural. The other one  which is natural is okay. So once swapping  
-6:53
-between two devices of the same model once this is  addressed then the next natural question is can we  
-7:03
-swap between two devices of different of different  type. So swapping between 15 and 15 plus does it  
-7:12
-work or not? And then there is a third thing that  I would like also to address. which is going to  
-7:21
-be and something that I've never seen anywhere.  Nobody talked about this, but let me show you.
-7:34
-So, these are two A3 controllers and the one  that everybody knows about is the SN 2012 027.
-7:46
-So it's that guy here.
-7:54
-All right. So if you search on Google SN2027,  you will get tons of results. Uh you will get  
-8:00
-people who sell you these chips on AliExpress  or you will get information about swapping them,  
-8:05
-which is uh I believe false.  Um, but there's this guy also.
-8:15
-And this guy, nobody ever talked  about it. That's the P2027
-8:22
-that you also find on iPhone. So, this one  comes from, this one comes from a 15 plus. Uh,  
-8:30
-this one here comes from the 15 from this  15 board that I just showed you earlier.  
-8:38
-And if you Google the P2027, you get absolutely  no information. And I don't understand why this is  
-8:46
-the case because it's not like these are rare. Uh  as I said, I bought I purchased these like uh five  
-8:54
-or six uh practice boards or iCloud lock working  boards. And out of these or I purchased uh five  
-9:03
-five of them. So out of these five, two of them  had the SN and three of them had the the P. And  
-9:14
-also using the serial number that that that I was  able to read uh from these devices, they come from  
-9:23
-all over the place. Uh they come from the US and  they come from China. So it's not like the the P's  
-9:31
-are located in one specific region. uh they seem  to be two different revisions of the same chip.  
-9:39
-And so the natural question is can I say I get a  device that has an SN but my donor board has a P.  
-9:50
-Can I use the P to replace the SN? So we'll talk  about this. And uh another topic that I'm going to  
-10:01
-also address is uh the ROM and and the touch the  touch issue because very early on uh basically as  
-10:15
-soon as these devices came out, you've seen video  reports of people swapping them and realizing that  
-10:22
-if you swap A3 without swapping the ROM, then most  likely touch will not work. And more generally,  
-10:31
-in fact, if the A3 doesn't work, if it's  defective, you are very likely going to lose  
-10:38
-touch on your device. So, is that true or not?  So, I'm going to address this also. And um the
-10:56
-yes and also I said yeah uh and this is going to  include the topic of the of the A3 ROM whether it  
-11:03
-has to be to be replaced or not. Uh the reason  why this has become uh an issue of re does the  
-11:12
-ROM have to be replaced or not is because uh  lately you you have these programmers that have  
-11:20
-come out from the for the 16 Pro that allow you  to reprogram the ROM without having to separate  
-11:29
-the board because the 16 Pro is done so that Um  the A3 is accessible directly without separating  
-11:39
-the board. However, the ROM is located inside the  sandwich, which means that if you want to replace  
-11:46
-the A3 and you also want to replace uh the ROM,  then you will have to separate the board. And  
-11:54
-that's why these programmers came out because they  allow you to reprogram the ROM directly from the  
-12:00
-outside of the from without separating uh just  by running jumpers because Apple provides you  
-12:07
-test points that talk directly to the ROM and um  they seem very convenient. So, do you have to buy  
-12:16
-them or not? I didn't look at the price, but uh  uh so maybe they're cheap. I I don't know. But  
-12:23
-the question is, do you have to buy yet another  programmer just for this specific niche case of  
-12:30
-the 16 Pro? So, uh, so we will also talk about  this about ROM manipulation and um I think that's  
-12:41
-actually going to be the first the first topic  because it's the easiest one to to address. So  
-12:46
-hopefully I got you interested. I'm going to break  this into multiple smaller videos. They will not  
-12:53
-be small, but they will be smaller than doing  a whole uh big video on the on the subject. I  
-12:59
-hope that if that you will watch every everything  because to me it is what I found is actually very  
-13:08
-interesting interesting and even if you do MacBook  repair but you don't do iPhone repair uh this  
-13:15
-should be relevant to you because as I said the  iPhone is the simpler device that only has one A3.  
-13:22
-The problems that we discover on the iPhone will  most likely also happen on the on the MacBook, but  
-13:30
-it will be even more complicated because we have  three or four of them uh on the on device. So,  
-13:39
-uh MacBook repairs person who are not interested  in iPhone, please watch it should be it should  
-13:47
-be interested interesting to you also. So, thank  you for watching and I'll see you in the next one.
+Cleaned technical transcript. Greetings, repetition, purchasing chatter, and presentation filler removed.
+
+## 0:10–1:47 — Why start with iPhone
+
+The author chooses iPhone as the simpler platform because it has one A3 controller, while a MacBook can have three or four. The same replacement questions therefore exist on MacBook, but mapping and position make them more complex.
+
+Questions to test:
+- Can an A3 be swapped between devices with the same part number?
+- Must the donor come from the same model?
+- Does controller position matter?
+- Must the external ROM be transferred with the A3?
+- Can controllers be swapped across related models?
+
+The initial test platform is iPhone 15 / 15 Plus.
+
+## 4:47–6:45 — Simple swaps may appear to work but still be wrong
+
+The author warns that A3 swaps can appear fully functional while still having deeper restore/update or serialization problems. The goal of the series is to test those hidden failure modes rather than judge only by charging, touch, or normal USB operation.
+
+## 7:34–9:50 — Two observed A3 variants
+
+Two controller markings are discussed:
+- **SN2027 / SN2012027 family**
+- **P2027 / P20127 family** as transcribed
+
+The author found both in donor iPhone boards. In his small sample, P variants were common and not restricted to a single geographic region.
+
+A major test question is whether an **SN can be replaced by a P, or vice versa**.
+
+## 10:01–12:30 — ROM and touch
+
+The series will also test the common repair claim that replacing A3 without moving the external ROM causes:
+- loss of touch,
+- loss of charging,
+- loss of USB communication.
+
+The external ROM is therefore treated as a separate variable from the A3 silicon itself.
+
+For iPhone 16 Pro, the author notes that programmers exist which can access/reprogram the A3 ROM through Apple-provided test points without separating the sandwich board.
+
+## 13:08–13:47 — Relevance to MacBook
+
+The author explicitly says the iPhone findings should also matter to MacBook repair. iPhone is the simpler case with one A3; MacBook is expected to be more complicated because it contains multiple A3 controllers.
