@@ -1,285 +1,85 @@
-Hi, good morning. So, uh, we meet again for the next next leg of our of our
-0:09
-investigations on the A3s. So, today we are going to try and use a P20 instead
-0:18
-of an SN20. So, uh, let me show you.
-0:24
-Again, I explained this in the first video, but it seems like
-0:30
-It seems like there are there are two variations of the of the base 3
-0:35
-controller which are the P and the SN. Uh and apparently everyone knows about
-0:41
-the SN but for some reason I've never seen any mention anywhere about the P2027.
-0:49
-And this one I've personally found very frequently. I found it uh as I said I
-0:55
-ordered five five donor boards and out of the five donor boards the three of them were P's and two of them were were
-1:01
-essence and uh the PS were all on 15 pluses so I don't know if that is
-1:08
-relevant so but I I haven't had a 15 yet so that has a P onto it let me show you
-1:15
-this is not this is a donor board untouched and on it there is a nice P
-1:20
-20127 that is installed. So, what we're going to do is
-1:28
-take this one which I already I already prepared on Rebald
-1:36
-and we are going to install it on this on this board which is u our test 15
-1:42
-plus board that we've been using from the from the beginning. So, let's install it and uh see how the how the
-1:49
-device behaves.
-2:27
-[snorts]
-3:09
-Okay. [snorts] So, [clears throat]
-3:33
-so let's remove this board. Uh, let me see.
-6:25
-Okay. So, what can we expect? Well, um we're kind of used to it now. We expect
-6:31
-it to show up immediately in DFU mode. And we expect uh touch to not work, the USB system to
-6:39
-not work, and we're probably going to try and flash it to see if the if we can
-6:45
-recover USB functionality. So, let me switch views.
-6:53
-All right. Open a Finder window.
-6:58
-There you go. And let's connect it.
-7:14
-So, automatically detected in DFU mode, which is normal because the A3 is not
-7:19
-booted [laughter] since the ROMs don't match.
-7:29
-All right. Touch is not working. Uh,
-7:36
-what does 302 say? So, it gives me a phone with ECID 107
-7:43
-something. And I can try and flash it with 30 tools. I'm first going to try and flash
-7:49
-it with uh with iTunes. So here uh notice how there is no there is no model
-7:57
-mismatch. It is a 15. It is identified as 15 plus and the A3 comes from a 15
-8:03
-plus. So we don't have um a model mismatch like the like in the previous
-8:09
-case. But right now it is getting that information from the chip and not from
-8:16
-the from the pro processor because USB doesn't work right now.
-8:21
-So, let's restore
-8:26
-and see how this goes.
-10:09
-All right. [clears throat] So, we are getting the same failure as we were getting with the with the 15 uh
-10:18
-SN 2012 yesterday. meaning that
-10:23
-iTunes or Apple or the TSS server is refusing this uh this P202.
-10:31
-So uh of course the log is going to be the same as the one we saw yesterday.
-10:45
-So yeah, from the time stamp we can see it's the it's the correct one. Uh you
-10:50
-can also see the EC ID. That's the one that we just saw 107.
-10:55
-And if we try to look for checkpoint 131D
-11:02
-here, update A3 and blah blah blah. It's going to say
-11:08
-again probably that it refuses to use this uh
-11:16
-here declined to authorize this image on this device for this user. So uh Apple
-11:24
-refuses to refuses to give the A3 firmware because
-11:31
-it noticed a problem even though it is the same model. It was a It was a 15
-11:37
-plus installed a 15 plus A3 installed onto a 15 plus.
-11:43
-All right. So, um now if things h if things are like yesterday
-11:50
-with the 15, uh normally during the restore, Apple did push a
-11:56
-working firmware to the A3 so that it can boot in order to do the restore. If
-12:02
-I um so if I restart the phone, I'm hoping that USB works and that I will then be able to try with 3U tools.
-12:11
-If not, uh we'll see. So, let's restart it in uh recovery mode.
-12:30
-So, Now it and you see it doesn't want to go
-12:35
-into recovery mode.
-12:42
-Sorry, I'm getting a phone call. Just a second.
-12:48
-Uh, okay. Sorry. Sorry for the interruption. Customer was calling. So, I don't remember what I was saying cuz
-12:54
-like it was [laughter] half an hour on the phone, but uh uh if I remember well. So we tried to flash it
-13:01
-with uh with finder and it failed uh and now I put it in recovery mode but it is
-13:08
-not detected in recovery mode. It is still in port DFU mode. So the behavior is actually different from um
-13:18
-uh from yesterday when we put the 15 uh IC in it. So uh let me see.
-13:26
-So because since iTunes fails, let's try now three tools.
-14:12
-All right. So, flashing failed.
-14:19
-So, it did fail very early here with an
-14:26
-here. Look here. received USB port controller one ticket creating A3
-14:31
-binary. So it's trying to create the the the
-14:37
-firmware for the A3 but it doesn't go through.
-14:43
-All right. So it seems like now both fail.
-14:48
-Uh let's try let's try uh I I want to try something
-14:55
-else. H [clears throat] no no no no. So no no no. So so both
-15:03
-failed and I don't have any hope of getting through uh getting it working
-15:09
-through software. So in this case what I'm going to do so I'm going to replace
-15:16
-the ROM also. So, I did make a backup of the ROM for this ACE chip and uh I'm
-15:23
-going to flash it onto this um onto the IC. Notice that I I didn't have to do
-15:29
-this in the previous two cases. Uh as I said yesterday, it's only getting worse
-15:35
-with each video. So, let's do this.
-16:27
-[snorts]
-17:55
-Okay. Uh, let me see.
-18:01
-I'm just going to increase the font so you can read because I noticed that uh the font is
-18:08
-kind of small for when viewing on the on the video. Check.
-18:14
-Let's close this. All right. So, this is bigger.
-18:28
-And I did make a backup of this one. I hope I can find it. Yeah, original. This
-18:34
-This is the backup for this uh for this ROM.
-18:56
-Oh yeah, it it wants me to to give it the chip number. So minus C and W25
-19:05
-Q ARV.
-19:11
-[snorts]
-19:32
-Okay.
-20:22
-All
-20:43
-right.
-22:41
-Okay, [clears throat]
-22:49
-just change your camera setting because for some reason for some reason the camera was not uh
-22:56
-the the hand the on hands camera was zooming too much. Uh, so
-23:08
-let me show you my display. So, I'm not getting any message about the phone
-23:14
-being in DFU mode anymore
-23:21
-because now the A3 has has its um
-23:28
-the A3 has has its ROM with its application code.
-23:34
-So, it's able to boot and now it is correctly detected in recovery mode by
-23:40
-um by the finder. I'm not going to flash it with uh finder because we already know
-23:48
-what's probably going to happen. It's going to give me error one with the
-23:53
-checkpoint 131D and it's going to refuse to update the the A3.
-24:00
-we I'm I'm sure about I already know it's going to happen and I'm just telling
-24:06
-you. So, however, if I flash now with 3U tools, now it is correctly detected in
-24:13
-in uh in recovery mode. And I'm going to flash it
-24:19
-and we'll see.
-24:36
-to you.
-24:51
-We are [music]
-25:14
-the Lord.
-25:40
-Hey, hey, hey.
-26:03
-Okay. So after putting the correct
-26:09
-contents into the ROM then 30 tools is now able to flash the device
-26:16
-and uh touch works, charging works. You should
-26:22
-be able to see it. And USB detection. Uh let's
-26:30
-go there and see
-26:35
-like yeah USB communication works as well.
-26:41
-So the device
-26:47
-the device seems to function normally but we do have the same situation as yesterday with the with when I trans
-26:55
-when I used the chip from a 15 iTunes or the finder will refuse to to restore or
-27:03
-up or update it. However, three tools will succeed. So,
-27:10
-this for me, uh, this is something that you shouldn't do. If you
-27:16
-if if you're repairing this for a customer, if you have an SN, you should replace it by an SN. And if you have a
-27:23
-P, you should replace it by a P. Uh, because otherwise, at some point,
-27:28
-someone will own this device and won't try to restore it with uh with iTunes and it's
-27:36
-going to break it. So this is uh this is the situation with
-27:42
-the with the PS. The only difference with with the previous case is that this time
-27:49
-we absolutely need to transfer the ROM for the for the device to function.
-27:58
-So [sighs] all right, I hope uh I hope this was interesting. We more or less
-28:04
-covered uh all the cases we said we would uh talk about. I have one last
-28:11
-thing that I wanted to address and it's going to be in the next video. It will be about uh some chips that you can find
-28:18
-on AliExpress that pretend that they're compatible with everything
-28:23
-and that they do not need a ROM transfer. So, if let me see if I can find my my AliExpress history.
-28:48
-So, let me check.
-29:50
-So yeah, that's all all the crap I had to
-29:56
-purchase. So I think yeah, it's these.
-30:02
-So, I did buy these chips to try them and we're going to try them together and
-30:08
-see if they really work. So, they're called, you see, they're called charging IC. So, even though the ACE controller
-30:16
-is not a charging IC, I don't know why everybody says that the ACE controller is a charging IC. It's it's a USB it's a
-30:23
-USBC controller and uh MX and power delivery controller, but it's not a
-30:28
-charging IC, but it's called decrypted. So, whatever that means. I have no idea what they did with these chips, but I
-30:34
-did get some and we're going to we're going to try them. All right. Thank you. Thank you for
-30:41
-watching and see you next time.
+# Video 65 — P2027 vs SN2027 replacement behavior
+
+Cleaned technical transcript. Greetings, soldering dead time, phone-call interruption, music, camera/UI chatter, repetition, and shopping commentary removed.
+
+## 0:30–1:42 — Test setup
+
+The author describes two A3 variants seen in donor boards:
+- SN-family controller,
+- P2027/P-family controller.
+
+In his donor sample, P variants appeared frequently and several came from iPhone 15 Plus boards.
+
+Experiment: install a **P-family A3** into the test iPhone 15 Plus board in place of the prior SN-family setup.
+
+## 6:25–8:16 — Initial behavior
+
+With the donor P A3 installed but the recipient external ROM unchanged:
+- host detects PortDFU,
+- original-screen touch does not work,
+- USB subsystem is not functioning normally.
+
+There is no simple model mismatch: the donor A3 is from a 15 Plus and the recipient is also a 15 Plus.
+
+The pre-boot model/identity information is coming from the A3 path rather than the AP because normal USB bridging is not active.
+
+## 10:09–11:37 — Apple/Finder refuses A3 authorization
+
+Finder restore fails.
+
+The restore log again reaches checkpoint **131D / Update A3** and includes the TSS refusal:
+
+**“Declined to authorize this image on this device for this user.”**
+
+Important result: matching the broad phone model is not sufficient when the A3 variant/revision does not match the expected configuration.
+
+## 12:54–14:43 — 3uTools also fails while only PortDFU is available
+
+Unlike the prior cross-model SN experiment, the device does not successfully transition into normal recovery after the Finder failure; it remains in PortDFU.
+
+3uTools also fails early.
+
+The log reaches:
+
+**“received USB port controller one ticket, creating A3 binary”**
+
+but the process does not complete successfully.
+
+## 15:09–23:40 — Transfer the ROM paired with the donor P A3
+
+The author programs the external ROM with the backup corresponding to that donor P A3.
+
+After installing the matching ROM:
+- A3 boots,
+- the device is no longer stuck in PortDFU,
+- Finder sees normal recovery mode.
+
+This shows that in this P-vs-SN scenario, relying on automatic ROM recovery was not enough; the matching donor ROM was required to get the A3 to boot persistently.
+
+## 24:06–26:35 — 3uTools restore now succeeds
+
+With the matching P-A3 ROM installed, 3uTools restore succeeds.
+
+Afterward:
+- touch works,
+- charging works,
+- USB communication works.
+
+## 26:47–27:49 — Practical conclusion
+
+The phone appears functional under 3uTools, but Finder/iTunes is still expected to refuse future standard Apple restore/update because the A3 type does not match the original configuration.
+
+The author's repair recommendation:
+- replace **SN with SN**,
+- replace **P with P**.
+
+For this experiment, unlike the earlier same-revision SN swap, **matching external ROM transfer was required** before the donor P A3 could operate normally.
+
+## Research significance
+
+This experiment separates three constraints:
+1. phone model,
+2. A3 silicon variant/revision,
+3. external ROM/application image.
+
+Same phone model alone does not guarantee Apple A3 personalization/restore acceptance.
