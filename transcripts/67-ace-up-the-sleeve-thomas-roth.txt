@@ -1,0 +1,295 @@
+# Video 67 — “Ace up the Sleeve”: reverse engineering Apple ACE3
+
+Cleaned technical transcript. Greetings, applause, conference logistics, equipment jokes, return-window jokes, music, repeated filler, and audience Q&A are removed.
+
+## 0:23–1:55 — Research scope and prior work
+
+The talk covers:
+- hardware/firmware reverse engineering,
+- side-channel analysis,
+- fault injection,
+- obtaining code execution on Apple’s ACE3 USB-C controller.
+
+The speaker credits prior work on:
+- iPhone kernel read/write,
+- Thunderbolt patching,
+- Asahi Linux hardware documentation,
+- fault injection,
+- earlier ACE-controller research.
+
+## 2:07–4:13 — USB-C sideband access and ACE3 role
+
+Earlier iPhones with Lightning exposed useful internal/debug buses through accessory/controller logic.
+
+For USB-C iPhones, the researcher built tooling around the USB-C sideband pins to access internal buses including:
+- UART,
+- SWD,
+- SPMI.
+
+The public board/tool referenced is **Tamarind C**.
+
+ACE3 is the USB-C / power-delivery controller on newer Apple devices and is involved in reconfiguring the USB-C port and exposing internal buses.
+
+## 4:34–7:50 — ACE3 sits between SoC and USB-C
+
+On iPhone 15, ACE3 sits between the main SoC and the USB-C port.
+
+It handles:
+- USB Power Delivery,
+- charging negotiation,
+- Vendor Defined Messages (VDMs),
+- reconfiguration of USB-C pins for internal buses such as SWD and UART.
+
+The researcher’s goal is to obtain ACE3 firmware so he can reverse its command set and hidden functionality.
+
+## 7:05–7:50 — PortDFU is implemented by ACE3
+
+When an iPhone 15 is put into DFU, the USB device first appears in **PortDFU**.
+
+Key observation:
+
+```
+USB host
+  ↓
+ACE3 PortDFU USB stack
+  ↓
+later transition
+  ↓
+main-SoC DFU
+```
+
+So PortDFU is not merely a label: it is a USB stack running on the USB-C/power-delivery controller itself.
+
+This makes ACE3 security-relevant because persistent code execution on ACE3 could survive independently of the main SoC.
+
+## 8:10–13:59 — ACE2 background and update security model
+
+ACE2 was easier to study because it is related to TI TPS65986 and had more public information.
+
+ACE2 characteristics discussed:
+- communication from macOS through **AppleHPM**,
+- 4CC command protocol,
+- status and command registers,
+- privileged commands disabled on production units,
+- external SPI flash,
+- firmware patch model where external flash supplies patches to code in internal ROM.
+
+The researcher built an **Ace Tool** to communicate with the controller.
+
+ACE2 firmware updates are signature-protected using RSA-3072.
+
+Important ACE2 distinction:
+- signature verification occurs during update,
+- there is no full secure-boot verification of external patches at every boot.
+
+This allows persistent modification after gaining code execution once.
+
+## 14:22–17:24 — Software SWD access on ACE2
+
+The researcher discovered that Apple SoC GPIOs can reach the ACE debug interface.
+
+Using:
+- kernel read/write access,
+- GPIO control,
+- bit-banged SWD,
+- OpenOCD,
+
+he built software tooling that can dump/debug ACE2 without physically attaching an external debugger.
+
+This eventually allowed persistent ACE2 patching through its external flash.
+
+## 17:36–18:54 — ACE3 on M3 Pro / M3 Max
+
+ACE3 is used on:
+- iPhone 15 family,
+- MacBook Pro with M3 Pro / M3 Max.
+
+The researcher chose an M3 Max MacBook as a development target because:
+- larger board,
+- accessible test points,
+- easier probing,
+- macOS user space can directly interact with the relevant platform services.
+
+ACE3 does **not** use the old USB-C firmware flasher.
+
+Instead Apple uses a new **libace3updater** path.
+
+The speaker notes that update mechanisms appear to differ between iPhone 15 and MacBook Pro.
+
+Most importantly, ACE3 updates are **personalized per device/machine**, with Apple signing infrastructure involved.
+
+## 19:00–21:04 — SWD/debug interface exists but is disabled
+
+The researcher first tried to reuse the software GPIO/SWD approach from ACE2.
+
+On M3 Max he identified likely ACE3 debug-related GPIOs and physical debug points, but the ACE3 debug port was disabled on production hardware.
+
+So direct SWD was not enough.
+
+## 21:04–22:27 — External flash dump and integrity checks
+
+The ACE3 external SPI flash was dumped.
+
+Like ACE2, the external image appears to contain patches rather than the entire firmware.
+
+Differences from ACE2:
+- peripheral/memory layout is substantially changed,
+- high-entropy regions are present,
+- simple modification plus CRC repair does not boot.
+
+When invalid flash content is installed:
+- ACE3 fails to boot correctly,
+- the affected port may stop charging,
+- restoring the original flash recovers operation.
+
+## 23:00–23:49 — Different ACE3 instances have different firmware/personalization
+
+The MacBook contains multiple ACE3 chips, one per USB-C path.
+
+The researcher compared flash dumps from different ACE3 instances and found:
+- firmware images differ between ACE3 instances,
+- one port may have a larger/different firmware role,
+- high-entropy regions differ,
+- cross-flashing one ACE3’s firmware to another does **not** boot.
+
+The speaker’s conclusion is that there is likely **per-chip personalization**.
+
+This is directly relevant to repair/replacement work:
+
+```
+ACE3 #A external flash
+  ≠
+ACE3 #B external flash
+
+Cross-flash
+  → no boot
+```
+
+## 24:15–31:48 — Fault injection strategy
+
+With:
+- SWD disabled,
+- modified flash rejected,
+- firmware undocumented,
+
+the researcher moved to fault injection.
+
+He rejected voltage fault injection because it would require more invasive board modification.
+
+He used **electromagnetic fault injection (EMFI)** instead.
+
+Goal:
+- disturb execution during firmware integrity/authentication checks,
+- cause instruction skipping or other fault behavior,
+- get modified firmware to execute.
+
+## 26:03–30:21 — Side-channel timing
+
+To determine when to inject the fault, he measured electromagnetic emissions during ACE3 boot.
+
+Method:
+- monitor ACE3 boot activity,
+- use SPI flash chip-select as a timing trigger,
+- record many aligned traces,
+- compare traces between valid and invalid firmware.
+
+By changing CRC correctness incrementally, he identified a boot phase where integrity failure behavior diverges.
+
+This gave a practical timing window for EMFI.
+
+## 31:25–33:17 — First successful glitch
+
+The first controlled test changed the ACE3 firmware version string in external flash.
+
+The sequence:
+1. arm fault-injection hardware,
+2. reboot ACE3,
+3. trigger on boot/flash activity,
+4. inject EM fault,
+5. observe controller state.
+
+Successful fault injection caused the modified firmware/version to run.
+
+This demonstrated that ACE3 firmware checks could be bypassed transiently.
+
+## 33:24–36:24 — Turning the glitch into code execution
+
+A successful integrity bypass alone was not enough because the researcher still needed a callable function with usable input/output.
+
+He searched ACE3 patch code for known 4CC command handlers and found a function similar to one already understood on ACE2.
+
+He identified a **USBW** command handler that:
+- exists on ACE3,
+- can be invoked from user space,
+- can be replaced through the external patch mechanism.
+
+He then reused an existing ACE2 memory-read implementation as payload code.
+
+Result:
+- the USBW command could be repurposed into a memory read primitive,
+- ACE3 memory could be read from user space.
+
+## 35:49–36:53 — Arbitrary memory access and firmware dump
+
+The modified command returned real ARM/Cortex-M memory values.
+
+This confirmed actual ACE3 code execution.
+
+The researcher then obtained:
+- arbitrary memory read/write capability,
+- a full dump of ACE3 RAM and ROM/memory contents.
+
+The dump was slow because the primitive initially returned only four bytes per request and the machine could stop charging while the A3 was in invalid/failed states.
+
+## 37:05–37:56 — Low-cost reproduction
+
+The original lab setup used expensive fault-injection equipment.
+
+The researcher later ported the attack to a much cheaper fault-injection platform, trading speed/reliability for cost.
+
+The main conclusion is that ACE3 code execution and firmware extraction are possible without prior firmware knowledge, provided fault injection can bypass the integrity path.
+
+# Key implications for ACE3 repair research
+
+## 1. ACE3 firmware is personalized
+
+The speaker explicitly reports:
+- different ACE3 instances on one MacBook have different external flash contents,
+- cross-flashing one instance’s firmware to another fails,
+- Apple uses a personalized ACE3 updater/signing path.
+
+This strongly supports a per-device/per-chip personalization model.
+
+## 2. External flash is not the whole identity story
+
+The external flash contains important firmware/patch data, but simply copying another ACE3’s flash does not make the replacement boot.
+
+Therefore replacement problems cannot be reduced to “copy the ROM”.
+
+## 3. PortDFU belongs to ACE3
+
+PortDFU is implemented by the USB-C controller itself.
+
+So identifiers exposed in PortDFU can originate from ACE3 independently of the main SoC identity.
+
+## 4. ACE3 integrity checks can be faulted
+
+The researcher demonstrated that modified external flash which normally fails can be made to execute using EM fault injection.
+
+This provides a route to:
+- code execution,
+- memory read/write,
+- firmware dumping,
+- deeper reverse engineering of personalization and identity checks.
+
+## 5. Relevance to M3 Pro / M3 Max repair
+
+The target platform in the talk includes MacBook Pro M3 Pro / M3 Max — the same ACE3 generation relevant to current repair work.
+
+The most important research directions exposed by the talk are:
+- reverse **libace3updater**,
+- compare per-port ACE3 flash/personality data,
+- identify the high-entropy per-chip regions,
+- determine whether identity lives in internal ROM/OTP, external flash, or a combination,
+- determine exactly what Apple personalizes in the ACE3 update ticket/image,
+- understand how PortDFU identity is generated.
