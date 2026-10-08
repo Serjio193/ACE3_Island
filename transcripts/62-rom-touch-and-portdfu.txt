@@ -1,457 +1,112 @@
-Hi again. So let's start with the first part  of this series which is going to address  
-0:07
-uh two topics uh about the A3 controllers which  are the ROM and the issue of touch. So first a  
-0:17
-quick thing about why is there a relationship with  touch? Well, it's something that people very early  
-0:24
-when the iPhone 15 came out and people started  getting defective A3 controllers. Then they  
-0:32
-tried to change them and then they realized that  uh after you changed it, well, first you had no  
-0:39
-uh touch, which was weird, but you also had no  charging and no USB communication whatsoever.  
-0:47
-And then they realized that when you reinstall the  ROM uh when you also transplant the ROM from the  
-0:54
-donor board to the to the recipient board which  was defective but which you're trying to fix then  
-1:00
-uh you would get touch back and you would get um  charging and USB communication again. So um first  
-1:11
-touch is quite easy to explain. The relationship  with touch is quite easy to explain. This can be  
-1:17
-seen here from the schematic. You have a signal  here that's called IO ace to touch aid. Uh so  
-1:28
-what is it used for? Uh this I cannot tell but  all I can tell you it has is that it has this is  
-1:36
-the relationship between touch and um and the USBC  controller. And we already had actually touch and  
-1:47
-uh lightning issues in the in the past on previous  models. For example, on the 13 Pro, 13 Pro Max,  
-1:57
-uh 12 Pro Max, if if the Kraken IC, which was the  the USB control IC, the equivalent of the Ace,  
-2:07
-but for Lightning, if if that IC was defective,  then you could lose touch on these devices. But  
-2:14
-for some reason, you didn't have a problem on the  12 and the 13, for example. But uh so this is the  
-2:22
-fact that there's a relationship between touch  and the USB control IC is not is not news. Um  
-2:32
-anyway so somehow in order for touch to work  the ACE the the USB IC has to be booted and  
-2:41
-uh and working and some it it will send this  uh analog signal. So AI ID I believe stands for  
-2:50
-analog ID. I'm not sure the A I'm sure is for  analog ID. I'm not certain, but I believe it's  
-2:57
-identification. And this if it's missing, it will  it will disable touch. So this is to explain the  
-3:07
-relationship between the USB control IC and the  and the touch. So, uh, thank you Apple for making  
-3:13
-it that touch doesn't work if the if the USB if  the USB subsystem doesn't work. But anyway, now  
-3:22
-uh what about the ROM? Uh, the ROM, let me  see. So, first here's here's the board and  
-3:32
-the ACE controller is here. The ROM is  right here. What does the ROM contain?  
-3:39
-um it con it contains basically the the program  that the ACE should run when it's booting. So the  
-3:49
-the ACE is a microcontroller uh an ARMbased Cortex  M0 from uh what I've what I've um what I found and  
-4:01
-inside inside of the chip itself inside of the ACE  chip itself there is something that's called the  
-4:06
-boot code and the boot code is like the first  instructions that the the chip should run when  
-4:12
-it's starting. This is not enough for getting for  getting it fully working. The boot code will then  
-4:19
-direct it to the to the ROM which is this U9720  which contains what's called the application code  
-4:27
-and which is like all the functions that the ACE  should should execute. Uh so why is there a need  
-4:34
-for an external ROM? Well, that's because on  controllers usually the inside flash is not  
-4:43
-reprogrammed. So, but if we want to change its  behavior or if we want to update it or if we want  
-4:50
-if we find that there's like some security  vulnerability in the way it works well this  
-4:56
-uh this there needs to be a way to update uh what  the what the chip does and this is why we have  
-5:04
-an external flash. So in order for the chip to  fully function, it needs itself to be functional,  
-5:11
-but it also needs to have uh an external flash  which contains uh the correct application code.  
-5:19
-And if that application code is like absent or not  not um or unreadable or if it's if the ace chip  
-5:33
-doesn't want doesn't execute it then it will not  it will not work. It's basically like uh you have  
-5:40
-a Windows computer and you're just booting from  the BIOS and the BIOS cannot find the operating  
-5:46
-system and so your computer doesn't work. It's  basically the same thing. So, uh what I would  
-5:55
-like to explore here is the what what happens  if we have say a defective ROM or if we replace  
-6:06
-the ROM. So, I'm going to do this on this device  and uh we're going to see. But before doing it, I  
-6:15
-would like to I would like for us to notice a few  interesting things. So first now the device is uh
-6:25
-it's on. Let me change the view. So it's  on. I'm going to first show you what  
-6:35
-uh how it is detected by the by the computer. So  here on in the finder it appears as iPhone and it  
-6:48
-is like trying to activate. It's probably going  to fail because the device is iCloud locked. It  
-6:54
-shows up as iPhone 15 plus. And uh that's it. Now  I don't get the serial number. If I open 30 tools,  
-7:05
-30 tools, hopefully it will detect. Okay, it's  going to detect it and it's going to give me  
-7:11
-much more information about about the device. So,  here all the abnormal because I didn't connect the  
-7:16
-cameras because I don't need them for what I'm  doing, but it's going to tell me that it's an  
-7:21
-iPhone 15 Plus. It's going to show me the serial  number, the IMEI, and all kinds of information  
-7:27
-about about the device. All right. So, now I'm  going to put this iPhone in uh recovery mode.
-7:49
-All
-8:04
-right. And now that I put it in recovery mode,  this is what happens. So I get the finder pops  
-8:12
-up something that tells me that it detected the  phone in recovery mode. it gives me. So I get the  
-8:17
-serial number and I get the options to update or  to restore the the iPhone. I can also look at the  
-8:25
-information in 3U tools. Here I get a little bit  more information. I get the model which the finder  
-8:32
-doesn't give me. Uh and of course the serial  number and some other stuff here and the option  
-8:40
-to fl to go and and flash it and stuff. Uh, also  something that I should have showed you before,  
-8:46
-but I'll do it here. So, if I Okay, I'm good. If  I try to list the USB devices on my computer here,  
-8:59
-I will see Apple mobile device in recovery  mode. So, the mode is correctly detected and  
-9:06
-uh it's going to give me here serial number.  Yeah, serial number shows up. All right.
-9:14
-And now I'm going to try and put it in DFU mode.  
-9:19
-So this is not this is tricky. I  might have to try multiple times.
-9:28
-One, two, three, four, five, six.
-9:41
-No, it worked. Good. So now it's in DFU mode. The finder detects it  as iPhone, but doesn't give me any information  
-9:55
-about the serial number or anything. iPhone  DFU mode. I only have the option to restore  
-10:01
-it. I cannot update it. Restore means erasing.  erasing it. And uh that's basically it. Now
-10:16
-I get a little bit more information in 3 tools.  It shows DFU mode, but here I get at least the  
-10:21
-model number and I get something called the ECID,  which is the probably device device another device  
-10:29
-identifier. And uh I can flash. But actually,  3M Tools gives me the option to update,  
-10:40
-which means to keep the data that's on the phone.  And this actually works. If you ever tried it,  
-10:47
-it actually works. Now, let me see here how it is  detected by my computer here. Now, it's it shows  
-10:58
-up. Oh, here in something that's called port DFU  mode. And uh here I get like the EC ID also that  
-11:08
-shows up. But this is what's interesting  here port DFU mode whereas here it shows  
-11:15
-up as DFU mode. And this is a difference with uh  previous devices like devices that used lightning  
-11:27
-when you it when they were put in DFU mode and  connected to the computer here they would show  
-11:32
-up as DFU mode. So that is uh one thing that's  not noticeable. So now what I'm going to do is
-11:47
-take apart this phone and I'm going to  uh replace the simulates replacing the  
-11:55
-ROM only because we have two moving parts. One  moving part which is the ACE but we also have  
-12:05
-the ROM. So we want to change one thing  at a time. and see how it influences the  
-12:13
-the behavior of the device. So, going to  try I'm going to try and make this quick.
-12:48
-There you go. And in order to So, of  course, this ROM is not defective,  
-12:55
-so I don't really need to replace it. What  I'm going to do is I'm going to rewrite it,  
-13:01
-like put some garbage information in it. I'm  going to just blank it. So, let's remove this.
-13:37
-Let's put it in my programmer.
-13:44
-So, I'm using a CH341A uh like  very cheap SPI programmer.
-14:05
-That is this is what it looks like. And
-14:13
-here.
-14:21
-So before programming it,   I'm going to make a backup of it just  in case we lose the contents. So,
-14:37
-and I'm going to call it uh
-14:45
-iPhone 15 Plus original. And I'm I'm going to  index it with a with a number
-14:58
-with the ace serial number. So which is
-15:08
-42 A7 LK8. Eight.
-15:30
-So it says no.
-15:46
-No EPROM flash device found.  Okay. So maybe it's not
-15:54
-maybe it's not correctly inserted.
-16:07
-This should be good.
-16:16
-Let's try again. No, there you go. It  It just was not uh connected properly.
-16:30
-All right. So, uh, I did copy  it. Now I'm going to erase it.
-17:01
-Okay. So erase right done from  zero to fff. So very good.
-17:18
-Taking it out. And now I'm going to reinstall it.
-19:10
-Okay. Uh, so
-19:21
-I'm just slightly annoyed because  the like it seems like my OBS is  
-19:26
-lagging which is kind of annoying.  So, I'm sorry about that. Let me see.
-19:46
-I don't know if it's OBS or if  it's the computer that's lagging,   but no. I mean, it doesn't seem like  a Well, so I don't know. Uh let me
-20:05
-Okay, let me interrupt and uh start again.  Let let the restart restart the computer.  
-20:13
-Just a second. Okay, so it seems like it's  it's when I'm recording it's it's lagging.  
-20:20
-It didn't it didn't happen before. And I think  it's because I installed Tahoe on this device,  
-20:28
-which is apparently a big mistake. So anyway, uh  here's our iPhone 15 Plus that we replaced the No,  
-20:38
-we blanked the SPI ROM on it. So before  putting it back inside the device,  
-20:44
-I would like to show you something because  it will save me time later. I'm just going to
-20:56
-Uh, give it
-21:01
-a screen.
-21:18
-Well, install screen.
-21:24
-Install the battery
-21:42
-and show you a few things that happened.   So, I'm connecting it. I'm going to show  you my display right away. All right.
-22:00
-Oh, no. So, I'm I'm connecting  the device right now,   the the charging port right now. And there you go.  
-22:09
-As soon as I connect it, my Mac has detected  an iPhone in DFU mode. But if you look here,
-22:23
-the iPhone is actually starting and  it doesn't seem to be in DFU mode. And  
-22:32
-uh I did put the screen in order to  show you that touch is actually working.  
-22:38
-which seems to be contradictory with the  information I gave you before and which   is the information that's all over the internet  that when the when the ACE controller cannot boot  
-22:50
-uh you will not get touch. We'll see that it's  actually a bit more subtle than this. So anyway  
-22:59
-uh we have touch working. We have a phone  that's detected as a DFU device. Uh,
-23:10
-we if I turn on 30 tools,
-23:16
-it does show up as a phone iPhone 15 plus in  DFU mode. And if uh let me see if I see what the
-23:34
-how it shows up on my computer. It shows up as  port DFU mode. So again this same thing as before  
-23:42
-port DFU but it is not in DFU mode. I can I can't  interact with it. It's it's completely turned on.  
-23:51
-So, I'm
-24:01
-I'm now going to now that I showed  you what I wanted to show you. I'm   disconnecting it from battery and I'm  going to put it back inside the housing.
-24:25
-Uh, where's my housing? There it is.
-25:43
-All
-25:58
-right. So now let's see what happens.
-26:07
-So again immediately here let me show you  my screen. It's immediately detected as a  
-26:16
-device in DFU mode even though  it is turning on and booting.
-26:29
-It seems to work, but I have I have no touch anymore, which is weird  because I just showed you that I had touched on  
-26:43
-the other screen. And here here is why it w it was  important that I had a phone with um the original  
-26:52
-parts on it because this is an original screen.  The screen that I just connected it with just  
-26:59
-before is an aftermarket. This one comes from  like Mobile Centrics. I think it's called like  
-27:05
-X07 something. But on this one, the touch works.  So what's h what happened right now is the ROM is  
-27:17
-blank. So it the the ACE cannot boot. So it's  not able it's not sending this uh ace to touch  
-27:27
-aid thing and therefore touch is not working but  only on the original screen. After market screens  
-27:37
-for some reason don't ask me why don't seem to  need this uh don't need to to to need this aid  
-27:44
-signal. I forgot to connect my mic. I hope I  hope the sound was uh was good enough. Um, so  
-27:54
-this completely addresses the touch issue. Meaning  that if you want to say you you have an ACE chip  
-28:07
-that doesn't work and for this reason you don't  have touch. Well, with another screen that's not  
-28:13
-an original Apple screen, you will recover touch.  at least with this this screen the mobile centric  
-28:22
-X07 whatever soft OLED. So I I I've of course I  didn't test all the screens I just tested the one  
-28:30
-that I have and which is a soft OLED from mobile  centric. All right. So, uh, now we we have a phone  
-28:42
-that shows up in the FU mode. Well, the natural  question would be what happens if I flash it? So,  
-28:51
-let's see. So, so notice again it is not in DFU  mode. Normally, a device that's not in DFU mode  
-29:01
-should not accept to be flashed, but let's try it.  So, I'm going to do this. And there you go. Uh,  
-29:14
-so wait, before flashing it, so I what what  else do I want to to show you? So, we did see  
-29:21
-that there's no touch and we did see already that  in uh 3U tools it is detected as um as an iPhone  
-29:31
-in DFU mode. So, I cannot like transfer files. I  cannot make a backup. I cannot do anything with it  
-29:39
-uh except maybe flash it. And um if I connect it  to a charger, it will not charge. This is kind of  
-29:46
-natural because the ROM is blank. So the A3 cannot  boot. So it cannot function. Now let's restore it.
-30:12
-Heat. Heat.
-30:47
-Heat. Heat.
-31:12
-All right. So, it did its thing and it did  restore the phone. So, the restore went successful  
-31:21
-successfully. Now, uh, so you can see that the  phone is booting. It's going to take a while.
-31:37
-Let's see.
-31:45
-Oh, and now you see now USB is working.
-31:53
-Which means that now the A3 has booted completely.  So it seems like doing the restore did flash the  
-32:05
-ROM which was blank and reinstalled the proper  firmware for it. which is actually interesting  
-32:14
-because it means that and this is this is the  the first point I wanted to make is that if  
-32:21
-you have a device on which uh so everything is  working except that the ROM is defective well  
-32:30
-all you have to do in order you to recover  the correct contents of the uh the correct  
-32:36
-firmware all you have to do is replace the ROM  with a blank one and uh flash it because it's  
-32:42
-going to detected in DFU mode and like I just  did you will get uh USB functionality again I  
-32:49
-want to show you also that we get touch working  so I'm going to wait for it to boot completely  
-32:56
-uh now the question that you might have is so but  if I restore it in DFU mode it's going to wipe  
-33:06
-the contents of the phone and that is correct if  you do it from uh from the finder or if you do it  
-33:14
-from iTunes. So you will lose the data. However,  if you flash it from 3U tools with the option to  
-33:22
-keep the data, then it will flash completely.  The firmware for the A3 will be recovered and  
-33:32
-you will not lose the data. Uh of course, if the  flash fails for some other reason, that means the  
-33:38
-device has another problem. uh then of course  uh data will be lost but anyway let's see but  
-33:50
-uh what I wanted to say is that with what I just  showed you with the aftermarket aftermarket screen  
-33:58
-it makes it so that you will you you are still  able to recover data because touch in fact works  
-34:04
-with an aftermarket market screen it just  doesn't work with the original screen So,  
-34:10
-uh, if you're in that situation where, you  know, touch doesn't work because of a defective,  
-34:16
-um, A3 ROM, then you just need to put an  aftermarket screen and then do your backup. Uh,  
-34:27
-so, of course, you'll say, "Oh, but USB  doesn't work. So, how do I do my backup?"   This is completely irrelevant because nowadays  all the devices have by default the stolen device  
-34:39
-protection activated. So you will I mean you will  not be able to do the even if USB worked you would  
-34:48
-not be able to do the backup through USB because  you would need the customer to be present and to  
-34:55
-use its face to to authenticate through face  ID and blah blah blah and so so anyway since  
-35:04
-you got touch and the rest of the device works you  have Wi-Fi you will be able to transfer whatever  
-35:10
-pictures. It's going to be a bit of a hassle, but  you will be able to transfer uh data. There is a  
-35:17
-way to transfer data. I'm not saying it's the most  convenient, but you you you can transfer data.  
-35:24
-Otherwise, if you want to risk a flash, you can  flash with 3U tools and then uh with from from  
-35:32
-DFU mode and with with the option to keep the  data and you will be able to have a functional  
-35:39
-functioning device and then if you want to go  through the hassle of Face ID authentification to  
-35:46
-uh to bypass the stolen device protection, then  you can do that and you will be able to to to  
-35:52
-save the data through through us through USB.  Anyway, so the phone is now uh finally turned  
-36:00
-on and see touch came back. So we got we got all  the functionality back from the from the device
-36:11
-with starting with a blank uh A3 ROM. Now,  there's one last question that that that's  
-36:20
-interesting that that would be interesting  to know is what what did the the restore it  
-36:30
-it flashed the firmware onto the chip  is that firmware the same as original  
-36:39
-or is it updated or something? Well,  we're going to check that right away.  
-36:46
-So, okay, works. Let's let's do this.  So, we're going to extract the ROM again,  
-36:53
-and we're going to read it and compare it to the  to the to the backup that I already made before.
-38:00
-So what that mean?
-39:06
-All right.
-39:11
-So let's There you go. So I'm going to read it. And  now I'm going to call it uh after flash.
-39:39
-There you go. It's done. So now I do have two  backups. Oh, two two two copies of the of the  
-39:45
-ROM. So this one the four the one that's just  called dump. This was the original one before  
-39:53
-any of these shenanigans. And then this is  the one which I just made uh after flash.  
-39:59
-We're going to compare them. So the the the  easiest way for me to compare them is to   compute their MD5 and see if they're different or  identical. So let's see. MD5 of the original one.
-40:16
-There you go. And MD5 of the of the one after  
-40:22
-blanking the chip and then  restoring the phone. Uh so
-40:30
-uh so they seem to be different.
-40:36
-All right. So, Apple did did restore the  the correct firmware for the for the A3,  
-40:47
-but it it replaced it by something else. So,  if if you're wondering what it looks like,  
-40:52
-it's completely pointless to try  and um and look at it because
-41:01
-this is what it looks like. It's just you know binary code which is uh most probably  a binary code for ARM for ARM processors. So in  
-41:16
-order to understand what it means you would have  to decompile it and and whatever. But so anyway,
-41:27
-here's here is the conclusion of of that experiment is  that you can you are you can recover the contents  
-41:40
-of the of the US of the A3 ROM just by doing a  flash. So if if your ROM is defective, you replace  
-41:49
-it by another one coming from another device. Of  course, the contents will not be good for your A3,  
-41:56
-but the device will be detected in DFU mode. And  if you restore it uh either with iTunes Finder,  
-42:06
-which will delete data, or if you restore it  with um 3U tools, which allows you to conserve  
-42:13
-the data, you will be you will recover the  contents, the the correct firmware for the A3.  
-42:20
-And uh touch is not an issue either because by  using an aftermarket screen, you can get touch  
-42:28
-even if the ROM is not matched to the to the A3.  So anyway, I hope this was interesting. Thank you  
-42:39
-for watching and in the next video I guess I will  be trying to put the A3 from this board onto uh  
-42:50
-another iPhone 15 plus board and we will see what  happens. All right, thank you for watching again.
+# Video 62 — External ROM, touch behavior, PortDFU, and restore
+
+Cleaned technical transcript. Greetings, soldering dead time, camera/OBS commentary, repetition, and unrelated backup discussion removed.
+
+## 0:32–3:07 — Touch depends on the A3 path
+
+After A3-related failures, technicians observed loss of:
+- touch,
+- charging,
+- USB communication.
+
+The schematic contains an **IO ACE-to-touch AID** signal. The author does not claim to know its exact internal meaning, but uses it as evidence that touch behavior depends on the USB controller path.
+
+He notes similar historical coupling between touch and earlier Lightning USB-control ICs.
+
+## 3:39–5:46 — What the external ROM does
+
+The A3 is described as an ARM Cortex-M0-class microcontroller.
+
+The chip contains internal boot code, but the external ROM/flash (shown as U9720 in the iPhone example) contains the **application code** needed for full operation.
+
+Model used in the experiment:
+
+```
+A3 internal boot code
+        ↓
+external SPI ROM
+        ↓
+application firmware
+        ↓
+normal USB-C / PD / related operation
+```
+
+If the external application code is absent, unreadable, or rejected by the A3, the controller cannot fully boot.
+
+## 8:04–11:15 — Normal/recovery/DFU observations
+
+In normal and recovery operation the phone exposes normal device information.
+
+When the device is placed into what the host tools call DFU, the USB layer appears as **Port DFU**. The host exposes an ECID-like identifier from this path.
+
+The author distinguishes this PortDFU presentation from normal CPU/device identity.
+
+## 12:55–17:18 — Blank the A3 ROM
+
+The original external ROM is backed up with a CH341A SPI programmer and then erased.
+
+After reinstalling the blank ROM:
+- the phone itself can still power/boot far enough to show activity,
+- the host sees a PortDFU/DFU device,
+- normal A3 functions are absent because the A3 application firmware is missing.
+
+## 22:00–28:30 — Original vs aftermarket display
+
+With the ROM blank:
+
+**Original Apple display**
+- touch does not work.
+
+**Tested aftermarket soft-OLED display**
+- touch works.
+
+The author concludes that the tested aftermarket screen does not require the same A3-to-touch AID condition that the original screen requires.
+
+This is an observation for the tested display, not proof that all aftermarket screens behave the same way.
+
+## 29:21–32:49 — Restore rebuilds a blank A3 ROM
+
+Before restore:
+- PortDFU is detected,
+- normal USB communication is unavailable,
+- charging is unavailable,
+- original-screen touch is unavailable.
+
+A restore is then performed.
+
+After restore:
+- USB communication returns,
+- the A3 boots normally,
+- charging/touch functionality returns.
+
+The author concludes that the restore process **programmed usable A3 application firmware into the previously blank external ROM**.
+
+## 32:56–35:52 — Data-preservation implication
+
+Finder/iTunes DFU restore erases user data.
+
+The author notes that 3uTools offers a “retain user data” style flash path and reports that it can restore A3 firmware while attempting to preserve data.
+
+Separately, an aftermarket display may allow touch recovery even while the A3 ROM is mismatched/blank, which can provide another path to user-data access through the running OS/Wi-Fi.
+
+## 36:11–40:47 — ROM before vs after Apple restore
+
+The external ROM is dumped again after restore.
+
+The author compares the original pre-test ROM dump with the post-restore dump using MD5 and finds they are **different**.
+
+Observed conclusion:
+- Apple restore reconstructed a working firmware image for the A3,
+- but the resulting ROM image was not byte-identical to the original saved ROM.
+
+## 41:27–42:20 — Practical conclusion
+
+For the tested same-device situation, a missing/defective A3 external ROM does not necessarily require recovering the original ROM contents.
+
+A blank/replacement ROM can be installed, after which restore can regenerate working A3 firmware.
+
+The author presents:
+- Finder/iTunes restore as the destructive path,
+- 3uTools as a path that may preserve user data.
+
+The key technical result is that **A3 application firmware can be regenerated by the restore process when the underlying A3/device pairing is otherwise acceptable**.
