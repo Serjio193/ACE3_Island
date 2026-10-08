@@ -1,0 +1,700 @@
+
+Hi, how are you? So, uh, welcome for a new experiment. So, as you probably
+0:07
+guessed, things are only going to get worse from here. So, here we have the this is the device
+0:13
+from uh yesterday, the one from the last video, which is a 15 plus, but uh on
+0:19
+this board, I did put the A3 from from this board. And then we saw that the
+0:25
+device can flash without any problem. And then we get everything working
+0:30
+again. USB communication uh what touch whatever. So this the
+0:39
+device seems perfectly functional. The only issue is that it has now two ECIDs. One uh which is in the ACE chip and one
+0:48
+which is uh in the in the processor. Uh so far it doesn't seem to be an issue
+0:55
+but we don't know in the future. uh what can happen with future iOS updates.
+1:02
+But so anyway, it seems like so far uh changing ACE controllers between devices
+1:08
+of the same model seem to work seems to work
+1:14
+with that little kat of the two different ECIDs.
+1:19
+All right. So what I'm going to try today is now take this uh 15 plus. I'm
+1:25
+taking this one instead of this one because I've already prepared it. Uh I've cleaned up everything. So, it's
+1:30
+ready to to get a new chip. Um and I'm going to put on it the A3 from a 15. So,
+1:38
+now I'm going to what I want to test is changing ACE chips across different
+1:45
+models, but models which are close enough because the 15 and the 15 plus,
+1:50
+they have the exact same motherboard. The only thing that changes is that uh is the board ID uh resistors which uh
+2:00
+which determine actually the model. But before doing this uh I just thought
+2:06
+of something which would be interesting is that since this one has the ace from
+2:11
+this one and was flashed yesterday and during the flash the the ROM was also
+2:19
+uh was also programmed. Well, it would be interesting to see if the contents of
+2:24
+this ROM is the same as the contents of this ROM. This one we've already saved uh in the in the second video. So, we
+2:32
+already have a back we already have a dump of this one. And what I'd like to see is if uh the the ROM contents is the
+2:39
+same or not because the Ace chip is the same. So, let's try this
+2:45
+and then we'll do the we'll we'll put the 15 A3 onto onto this device.
+2:53
+It should be really quick.
+4:24
+All
+4:45
+right. So, ROM is removed. I put it in the programmer.
+4:54
+All right.
+5:00
+So,
+5:11
+okay. Uh
+5:29
+So the ace still is the one with the same number 42 A7 LK8
+5:38
+42 A7 LK8. So flashed
+5:47
+on other device.
+5:55
+So what does it say? Oh, okay. Uh it wants me to It was unable to autodetect
+6:00
+the chip. So,
+6:11
+um, minus C and we'll say it's a LW25 Q
+6:17
+80 RV. This doesn't really matter.
+6:23
+So reading flash.
+6:31
+All right. And then let's compare them.
+6:37
+iPhone 15 Plus uh flashed.
+6:46
+So um I can already see it was it's different.
+6:53
+So after flash. Yeah. So okay. So we're still getting
+6:59
+different uh different firmwares. Okay. Whatever. I was just curious, you know.
+7:05
+[snorts] So uh
+7:10
+I'm going to reinstall it rapidly because I don't want to lose it. It's not going to take a lot of time.
+8:00
+All right.
+8:23
+Okay. Oh my god. The Sorry, OBS is still
+8:31
+lagging. I'm going to have to interrupt and try again in a few seconds.
+8:39
+Okay. Hopefully it doesn't lag anymore. My god, I should never have updated to Tahoe. I I did this just to see if the
+8:47
+if the OS that I'm using won't change the the way the these these devices
+8:52
+behave, but that was very stupid. You should never update your OSS if
+8:58
+everything works. I I did it here for science and I regret it. Oh, Jesus
+9:03
+Christ. Okay, so now I'm taking the other board. This one is already prepared.
+9:09
+And I'm going to take my A3 from the iPhone 15.
+9:21
+Yeah, this is it.
+9:49
+Okay.
+10:23
+Okay. And while it's cooling down, let's let's
+10:30
+try to think about what we can expect at this point.
+10:35
+So this is the A3 from a 15. Obviously, it's not matched with this ROM. The the
+10:42
+firmware that's on this ROM does not correspond to this A3. So therefore,
+10:47
+when we're going to try to turn on the device, the A3 will not be able to boot
+10:53
+and it will present itself in port DFU. And
+10:59
+since we saw yesterday that the device the the A3 in inside has the device
+11:07
+identifier which is programmed. Most probably it is going to show up as an
+11:13
+iPhone 15. I already know the answers to this but I'm trying to walk you through uh how
+11:20
+this will actually this will actually be very natural. This is what we will expect. So,
+11:32
+let's do this.
+13:08
+Okay.
+13:17
+So,
+13:22
+you see that the device is turning on. Of course, we expect touch to not work
+13:29
+because this is an original display.
+13:40
+And
+13:54
+yeah, so no touch as expected. Uh you can see by the way that it's not charging. Uh, I should.
+14:03
+All right. And now, let me show you my screen. As soon as the device is plugged
+14:10
+in, I'm getting a device detected in DFU mode on my on my computer. So,
+14:21
+unfortunately, it doesn't tell me what model. In order to access that information, I would have to go to three
+14:27
+tools. And as you can see, it is detected as an
+14:33
+iPhone 15. That was that's what I expected because
+14:38
+the A3 is personalized for the iPhone 15. It comes from an iPhone 15. So, it
+14:44
+identifies itself as an iPhone 15 most likely through the through the EC ID.
+14:51
+So, uh, what do we want to do now? Well, nothing is working. No touch. So, of
+14:56
+course, what we're going to try is to flash it.
+15:03
+So, but now it becomes it becomes interesting because we have an this is a
+15:09
+this is really a 15 plus, but it identifies itself as a 15.
+15:16
+What should I flash it with? So let's see first if I flash it with a 15
+15:23
+plus firmware. So there we go.
+15:31
+So immediately uh the finder refuses to do it because it notices it it the
+15:39
+firmware doesn't match uh the way that the device the the doesn't match the
+15:44
+fact that the device presents itself as an iPhone 15. So, we are going to have to try the next
+15:52
+natural thing, which is to use an iPhone 15 uh firmware uh iOS. And obviously, we
+16:01
+expect this to fail at some point because
+16:06
+uh hopefully the software at some point will realize that this is actually not a
+16:12
+15. It's it's a 15 plus. So, let's see.
+17:02
+Let me show you the top view also. So, right now it's still on.
+17:27
+Oh, so the iPhone could not be restored. An unknown error occurred. Error 3002.
+17:36
+So, this is most probably the error that you're getting when you're trying to flash uh a 15 firmware
+17:45
+onto a 15 plus. So,
+17:51
+uh let me I'm trying to get a top view camera. Uh just a second.
+17:58
+Let me let me pause.
+18:04
+Okay. So now hopefully you have a top view camera which should be visible on the top right. So here the device
+18:13
+now doesn't respond. Uh I did not clear this error yet. Let
+18:19
+me do it. So but I have here okay iPhone still
+18:26
+shows up here. Let me see in 3 tools. Is it detected?
+18:33
+So now it's an iPhone in DFU mode without any model identifier.
+18:44
+Uh, all right. But now I think if I remember well, this is when it's going to be interesting.
+18:56
+So I'm going to reboot it.
+19:17
+So it boots which means that during the
+19:22
+flash that I just did the I nothing was actually done uh regarding the iOS and
+19:30
+the IB boot and everything. So now but uh you you cannot see but now it shows
+19:36
+as charging. So all of a sudden USB seems to work.
+19:42
+Touch works again.
+19:48
+And let's see if it's detected. Uh you should be able to
+19:54
+let me let me use. So for some reason it's not
+19:59
+detected in the finder, but it is still detected as a device in
+20:05
+DFU mode. Uh but that has absolutely no model
+20:10
+identifier. So
+20:16
+uh it seems that we have some form of USB
+20:22
+working. So let me unplug it. Plug it back in.
+20:31
+And let's see if we have
+20:46
+no not detected in any way.
+20:53
+Nope. All right. So Oh,
+20:59
+look. [laughter] So now it USB seems to work. It is now
+21:04
+detected. So what what just happened?
+21:10
+Uh did is it possible is it possible that the the flash that just failed did
+21:19
+actually restore the ROM so that the the A3 can boot? Well, actually not. And
+21:26
+that this is this is going to be interesting. Let me because let me power off the device.
+21:35
+So in order to let me power off the device by disconnecting the battery. So cutting cutting power to it. [snorts]
+21:49
+Now reconnect the battery. And now I'm going to
+21:57
+I'm going to connect it to the computer.
+22:04
+And now it's back to showing in DFU mode. So the USB doesn't work anymore.
+22:12
+And 30 tools again sees it as an iPhone 15.
+22:21
+So what I cannot be sure 100% but what I
+22:27
+believe happened is that when the phone uh
+22:33
+was connected the the first time so was powered off battery disconnected then I connect the
+22:40
+battery I connect it to the computer this turns on the ACE the ACE is not able to boot so it presents itself in
+22:47
+the FU mode I launch the restore with an iPhone 15 uh firmware which fails. But
+22:53
+during that process, the the restore the finder was able to force
+23:01
+the A3 to boot completely. So it pushed um an application code to the A3 but not
+23:11
+onto the ROM. So the A3 was booted and then I was able
+23:17
+to get USB detection. It was seen by the by the three tools and everything. Touch
+23:22
+was working again. But then when I removed the battery and so cut power and
+23:27
+uh and then reconnected the battery then of course the A3 turned off and when I
+23:35
+turned it on again because the firmware on the ROM was not flashed then the
+23:41
+device uh the A3 cannot boot. So it presents itself again as a device in DFU mode. So,
+23:50
+this is actually interesting news. So, what I'm going to do now
+23:55
+is do that again.
+24:00
+Oh, I have to restart this thing.
+24:15
+[sighs] Uh I I forgot the shortcut.
+24:20
+No. So it should be option. Yeah. Relaunch.
+24:32
+Okay. So let's go back to this iPhone. So I'm going to flash it again with the
+24:40
+iPhone 15.
+24:47
+It's going to fail, but this will push a working firmware
+24:54
+onto the A3, which will be a which which is the A3 is now booted. And this will
+25:01
+give me this will allow me to use USB uh communication. So now USB communication
+25:07
+is supposed to work as long as I don't disconnect the device
+25:13
+from power. So don't disconnect the cable and don't and uh and the battery.
+25:18
+As long as it's connected to power, the A3 will remain booted and US3 will be USB3 USB will be working. So what I'm
+25:25
+going to do now is I'm going to put it manually
+25:32
+in the FU mode.
+25:40
+1 2 3 4 5 six.
+25:48
+So it it didn't want to. So let's try again.
+25:57
+uh or so if if the fu let's try again.
+26:16
+1 2 3 4 5 6.
+26:26
+All right. So, no.
+26:34
+Uh uh uh. So, this is probably not the real DFU mode. So, we check with three
+26:40
+Tools if it shows up as 15. So, it shows up as 15. So the A3
+26:46
+uh was actually restarted and uh I have to start the process again.
+26:52
+So
+27:00
+all right so uh
+27:08
+so the good thing is that this is not too long. It doesn't take too much time. So,
+27:22
+so get it to fail.
+27:29
+All right. Very good. And now I'm going to restart it in uh recovery mode.
+27:47
+because DFU didn't work. I don't want to waste time. I'm going to just go directly to recovery mode. It should
+27:55
+work because the USB should be working.
+28:04
+Yes. So, I'm getting recovery mode. Uh, it doesn't show up. Let's try to
+28:13
+All right, now it shows up. Um,
+28:19
+let's see what 3U tool says. Is it a 15 or 15 plus? Now it is a 15 plus.
+28:28
+So, I hope you understand what's happening. the the the A3 is booted
+28:37
+which allows USB communication and now when it's in recovery mode the
+28:42
+the the cable the computer is talking directly to the CPU through the A3 the
+28:48
+A3 allows the communication so now the the phone is able to identify itself
+28:54
+correctly as an iPhone 15 plus so now this allows me to use the proper
+28:59
+firmware
+29:05
+Oh my god. Don't tell me I have to reboot this thing each time.
+29:19
+Sorry, this this Tahoe seems to be extremely buggy.
+29:25
+Anyway, all right. So,
+29:31
+so this time I'm choosing the firmware for 15 plus
+30:51
+Well, this is uh No, I was going to say this is good news, but no, this is bad news.
+30:58
+It failed. And we have this unknown error.
+31:04
+Whatever. So, uh, by the way, when you have iTunes errors, using the error
+31:10
+number is completely pointless. This is this is never the way to go. The way to
+31:17
+go is to look at the log for the for the restore in order to see why it fails. So
+31:23
+the log should be the last one here.
+31:30
+Look, by the way, the EC ID, this is the EC ID. It's not the correct one. We saw
+31:36
+yesterday that it's supposed to start by BD something for the for R15 plus.
+31:43
+So this is not the correct ECD. Uh but let's see if we can find where it
+31:49
+failed. So it says here in the end that it failed at checkpoint fingerprint
+31:57
+131D. So let's search for 131D
+32:02
+here. What is checkpoint 131D? Update A3. So,
+32:11
+it failed when it was trying to update the A3 somehow in the middle. It must
+32:17
+have noticed that there's a problem and see here. So, here there's like a bunch of crap. USB controller one USB firmware
+32:26
+A3 updater has device generated restore info. So, I don't really know what this
+32:33
+means, but just probably it hints at the fact that
+32:39
+the firmware is device specific. But now we have a problem because the device is
+32:46
+a 15 plus with uh a 15 uh A3. So, blah
+32:52
+blah blah update or so TSS. So, TSS connection
+32:58
+attempt. So right now it is trying to connect to the TSS. TSS is the Tatsu
+33:05
+uh Tatsu signing server. It's the it's the main server from Apple. So or
+33:14
+when to to do what they what they call code signing to check that a device is
+33:20
+allowed to use that the firmware that you're asking for. So you we are asking
+33:25
+authorization to Apple. And here error from server this device isn't eligible
+33:32
+for the requested build. Declined to authorize this image on this
+33:39
+device for this user.
+33:45
+All right. So, we are kind of screwed
+33:51
+because if you put a 15 A3 onto a 15 plus,
+33:58
+apparently you cannot flash the device anymore
+34:04
+with with with Finder. So, let's restart it
+34:09
+and let's see. There is actually a solution. I'm going to show it to you. Uh, I just want to mention, but I I
+34:16
+don't want to you you'll have to trust me on this because this video is is already pretty long. I don't want to
+34:22
+make it too long because we still have a couple of flashes to do.
+34:29
+Um, I can tell you that if I put the the ROM from the if I copied the ROM from
+34:36
+the 15 corresponding to this A3, if I if I copied the ROM onto the device,
+34:43
+uh, then the device would be able to work normally, but it would still fail to flash with iTunes.
+34:50
+So, why don't you want to why won't you turn off
+34:58
+Oh, there you go. So, let's see what it does. It's probably going to boot in recovery mode. Yeah, it is. And let's
+35:07
+see.
+35:13
+All right. So, I'm not going to restore again because I already know that it fails. I'm going to but I'm going to
+35:19
+restore it. So, this
+35:28
+So here it shows as 15 plus in 3 tools. So I'm going to flash it as 15 plus with
+35:35
+three tools.
+35:41
+[music] [music]
+35:52
+Oh, [singing] [music]
+36:01
+[singing] holy, [music] holy
+36:07
+[singing] mighty
+36:12
+[music and singing] lovelessness.
+36:21
+[music]
+36:27
+[music] [singing]
+36:34
+[music]
+36:41
+[music]
+36:48
+[music]
+36:54
+[music]
+37:02
+Morning [music] Oh my god.
+37:10
+[music]
+37:20
+Okay. So, it flashed successfully with Ryu Tools.
+37:26
+We do have uh so you can't see it, but it it shows us charging. Touch works
+37:33
+again. uh 3U tools
+37:39
+is able to detect it properly. Let me
+37:47
+disconnect the battery.
+37:56
+Power it off. Make sure that this reboots the A3.
+38:40
+Okay. So, after after being uh powered off, disconnected from power, and
+38:47
+powered back on, we still have USB communication. So, now the DA3 can boot,
+38:53
+which means that the firmware was flashed onto the ROM, and we do have a
+38:58
+working device. All right. Uh let's check the EC ID.
+39:08
+So EC ID aha now shows up as 0000c1c
+39:17
+whatever which is not the correct one. The the correct one is the one that we saw on the previous video yesterday.
+39:24
+So this is not good. This is still not good.
+39:30
+The here the device identity has been completely altered.
+39:37
+Even though it shows as iPhone 15 15 plus it still it still has traces that
+39:46
+it is a 15 and it will present itself to Apple as a 15.
+39:53
+Uh, so I'm not going to put it in DFU mode because we're going to get the ECID
+39:58
+coming from the A3. So I don't even need to check this. The the
+40:06
+device seems to work though. So uh, now do you think Apple do you think Apple
+40:12
+would accept to flash it? H, let's see.
+40:17
+So, oh, uh, so let's put it in recovery mode.
+40:50
+All right. Uh, let's see what 302 says. Well, just
+40:56
+so the serial number shows up, so it's probably going to pres going to accept
+41:02
+the 15 plus firmware.
+41:08
+So, let's do this. and let's see if it works. Uh, while
+41:15
+it's doing its thing, let me show you here. I pulled the log from the from the
+41:21
+three tools restore and I pulled the log from the uh from from the finder restore
+41:27
+at the point 131D where it failed here update A3 etc. And you see that the two
+41:33
+behaviors are different. So I can't explain to you why or what is happening.
+41:39
+All I can tell you is that CRU Tools seems to be something seems to be doing
+41:44
+something different than than the Finder. Uh I don't know if it's on purpose or not. I don't know if someone
+41:51
+who if one of the persons who make this software has already figured all this
+41:57
+thing out about uh A3 authentication and the TSS server and whatever.
+42:04
+But it seems that 30 tools has found a way to make Apple send the corre uh a
+42:12
+correct firmware for the for the A3 whereas the finder refuses it.
+42:21
+So I I'm not here to give any explanation.
+42:27
+I don't know why. I'm just telling you what we're observing.
+42:40
+So just let it do its thing.
+42:46
+And here it fails again with the same the same problem 131D. So same
+42:52
+checkpoint update A3. So it's going to be the same log with the same reasons.
+42:57
+So now
+43:06
+now I think we we have the proof that
+43:12
+you cannot change A3s between different models.
+43:19
+Uh, and so I I just did here 15 to 15 plus. So you could tell, oh, but maybe
+43:26
+it will work with 15 Pro or 15 Pro Max or 16 or No, I don't even need to to try
+43:31
+it. I have all the proof that I need. I can see in the log that uh Apple
+43:38
+doesn't want to send the correct firmware to this to this device and doesn't want to restore it. So
+43:48
+the so the conclusion is that you should not change A3s between different models.
+43:55
+Uh however what we saw is that if you flash
+44:00
+it with threeu tools the flash will go through and the device will seem to work
+44:06
+perfectly. So is is that a problem or not? So
+44:12
+personally I consider this is a problem because say you return this device to the customer and one day they want to do
+44:20
+uh a restore well the and they're and they're using
+44:25
+iTunes or the finder the restore will fail. If they use three tools, then it
+44:31
+it will succeed. But if they use uh if if they don't have
+44:37
+three tools or they don't know that this thing exists or that it will fail if they
+44:43
+So you could as a repair shop, you could warn the customer. You could tell them,
+44:48
+okay, I was able, you know, your your USB controller was defective. Uh Apple
+44:53
+makes it very difficult to to change these things. So now your phone cannot restore with iTunes anymore, but you
+45:00
+will be able to restore it using this software. And you you give them free tools. You tell them from now on always
+45:06
+use three tools when you want to restore your phone. And the customer says okay. But then one day they sell this device
+45:15
+or they trade it in. Well, now the new uh the new
+45:23
+um the new owner of the phone, they don't know this. So, one day they're
+45:28
+going to try and restore it with iTunes and they're going to get this error 131D
+45:34
+and the their device will be bricked. So
+45:40
+my conclusion is that you should not you should not uh change A3s across
+45:48
+different models. Definitely not. Even if with Rio Tools the device will
+45:55
+flash and will seem to be perfectly working and usable.
+46:03
+Of course, you do whatever you want to do and uh I I can't I can't control you.
+46:09
+I I'm just giving you the facts and the the reality of uh of what's happening. And um now there is a natural question
+46:17
+which is like the the iPhone 15 has now been out for almost 3 years. How is it that this issue has never come out?
+46:25
+because I figured this out about one year ago and and then I started like doing all my
+46:32
+experiments and everything until I got to a to a correct conclusion which is more or less now. I I won't say I I
+46:39
+didn't spend one year researching this. It's just that what a year ago I had a
+46:44
+device to fix and uh I did I think there's a video actually on it from from
+46:51
+a year ago. There's one video where I changed the A3 on a on an iPhone 15 using a 15 plus because I didn't have a
+46:57
+15 donor board. So anyway, and uh but in
+47:03
+my process when I check that the phone works before returning it to a customer, I try to I try to update it and this is
+47:10
+when I noticed that the update fails. So
+47:16
+[clears throat] I I I'm I was aware I've been aware of this problem for about a year and then I I've been waiting for
+47:22
+the prices of uh of working devices to go down so that I can run all my
+47:27
+experiments. But so anyway, my question is iPhone 15 has been out for years. How is it that no one ever and and no one
+47:34
+has noticed this even though there had there must have been across the world tons and tons of A3 swaps because these
+47:42
+chips go bad very very frequently and uh I don't have an answer to this but I
+47:48
+have an an hypothesis which is that most repair shops like do not use iTunes and they do not
+47:57
+use finder almost every repair shop uses three tools
+48:02
+And then uh so this would explain why repair shops never never noticed this
+48:08
+problem. Now how is it that customers never notice this problem? Well, I do
+48:14
+believe that when you do an OTAA update, OTAA means overtheair. It means that you
+48:19
+know you your phone is working. You go in the settings, it tells you, oh, there's a new version of iOS. Do you
+48:25
+want to install it? You click install. when you do the OTAA update, um, Apple
+48:31
+doesn't check for the A3 firmware and therefore the phone updates
+48:37
+normally. It's only when you put it in restore mode and try to restore it that
+48:43
+the that the update through Apple fails. And this reduces the the quantity of
+48:51
+people who who would do this because like the vast majority of people use OT
+48:56
+do OTAA updates like if if the update fails uh they will
+49:02
+bring it to maybe maybe or maybe they will try iTunes a couple times and it will fail and then they will bring it to
+49:08
+a shop but then the shop will use three tools and then the update will succeed. So this is this is my explanation of why
+49:16
+this has never been like advertised or it has never come
+49:22
+out. Uh I'm curious to know what you think if you have been courageous enough to go
+49:30
+through to watch the whole video. Anyway, I'll see you next time. The next
+49:36
+one will be about the replacing an SN
+49:42
+by a P because I already explained to you in the first video that we have actually two versions of the of the A3s
+49:49
+which are the SN and and the P. So, can we replace an SN by a P or C?
+49:56
+Uh, see you next time. Bye-bye.
