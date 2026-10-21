@@ -1,0 +1,72 @@
+# IORegistry excerpts captured 2026-10-21; unrelated host/account properties omitted.
+
+    | |   |   +-o hpm0@C  <class AppleARMSPMIDevice, id 0x10000064a, registered, matched, active, busy 0 (755 ms), retain 9>
+    | |   |   | |   "port-location" = <"left-back">
+
+    | |   |   |   +-o AppleHPMDeviceHALType3@C  <class AppleHPMDeviceHALType3, id 0x10000064d, registered, matched, active, busy 0 (755 ms), retain 9>
+    | |   |   |   | | {
+    | |   |   |   | |   "I2C Read Failed" = No
+    | |   |   |   | |   "HPM Mode Register on Boot" = <"APP ">
+    | |   |   |   | |   "Status Reg" = 268435456
+    | |   |   |   | |   "Version" = 2131712
+    | |   |   |   | |   "Revision" = 34
+    | |   |   |   | |   "Data Status Reg" = 0
+    | |   |   |   | |   "CF VID Status Reg" = <00000000000000000000000000000000000000000000>
+    | |   |   |   | |   "RID" = 0
+    | |   |   |   | |   "UUID" = "4FB0B603-5E12-175E-CCBD-C02CDE2A0A40"
+    | |   |   |   | |   "Address" = 12
+    | |   |   |   | |   "Device ID" = 33628196
+    | |   |   |   | |   "Revision ID" = 161
+    | |   |   |   | |   "Vendor ID" = 40
+    | |   |   |   | | }
+    | |   |   |   | | 
+    | |   |   |   | +-o Port-USB-C@1  <class AppleHPMInterfaceType10, id 0x100000712, registered, matched, active, busy 0 (29 ms), retain 28>
+
+    | |   |   +-o hpm1@A  <class AppleARMSPMIDevice, id 0x10000064e, registered, matched, active, busy 0 (782 ms), retain 9>
+    | |   |   | |   "port-location" = <"left-front">
+
+    | |   |   |   +-o AppleHPMDeviceHALType3@A  <class AppleHPMDeviceHALType3, id 0x100000652, registered, matched, active, busy 0 (782 ms), retain 9>
+    | |   |   |   | | {
+    | |   |   |   | |   "I2C Read Failed" = No
+    | |   |   |   | |   "HPM Mode Register on Boot" = <"APP ">
+    | |   |   |   | |   "Status Reg" = 0
+    | |   |   |   | |   "Version" = 2131712
+    | |   |   |   | |   "Revision" = 34
+    | |   |   |   | |   "Data Status Reg" = 0
+    | |   |   |   | |   "CF VID Status Reg" = <>
+    | |   |   |   | |   "RID" = 1
+    | |   |   |   | |   "UUID" = "CE6CB703-5027-475D-6CC0-CD6EED27BD20"
+    | |   |   |   | |   "Address" = 10
+    | |   |   |   | |   "Device ID" = 33628196
+    | |   |   |   | |   "Revision ID" = 161
+    | |   |   |   | |   "Vendor ID" = 40
+    | |   |   |   | | }
+    | |   |   |   | | 
+    | |   |   |   | +-o Port-USB-C@2  <class AppleHPMInterfaceType10, id 0x100000723, registered, matched, active, busy 0 (37 ms), retain 28>
+
+    | |   |   +-o hpm2@8  <class AppleARMSPMIDevice, id 0x10000048b, registered, matched, active, busy 0 (941 ms), retain 9>
+    | |   |     |   "port-location" = <"right">
+
+    | |   |       +-o AppleHPMDeviceHALType3@8  <class AppleHPMDeviceHALType3, id 0x10000048e, registered, matched, active, busy 0 (940 ms), retain 9>
+    | |   |       | | {
+    | |   |       | |   "I2C Read Failed" = No
+    | |   |       | |   "HPM Mode Register on Boot" = <"APP ">
+    | |   |       | |   "Status Reg" = 268435456
+    | |   |       | |   "Version" = 2131712
+    | |   |       | |   "Revision" = 34
+    | |   |       | |   "Data Status Reg" = 0
+    | |   |       | |   "CF VID Status Reg" = <00000000000000000000000000000000000000000000>
+    | |   |       | |   "RID" = 2
+    | |   |       | |   "UUID" = "93741D00-9013-D7A7-E845-58EAA8CB85F4"
+    | |   |       | |   "Address" = 8
+    | |   |       | |   "Device ID" = 33628196
+    | |   |       | |   "Revision ID" = 161
+    | |   |       | |   "Vendor ID" = 40
+    | |   |       | | }
+    | |   |       | | 
+    | |   |       | +-o Port-USB-C@3  <class AppleHPMInterfaceType10, id 0x10000054a, registered, matched, active, busy 0 (56 ms), retain 28>
+
+# Subsequent host IORegistry USB descriptor excerpts
+    +-o Apple Device (Port DFU Mode)@14300000  <class AppleUSBDevice, id 0x10001f607, registered, matched, active, busy 0 (1 ms), retain 14>
+          "kUSBSerialNumberString" = "SDOM:00 CPID:0022 BDID:0000000000000000 ECID:A7D71390001D7493 CPFM:00 SCEP:00 CPRV:0A1 PREV:00 SYSI:0000000000000000"
+          "USB Serial Number" = "SDOM:00 CPID:0022 BDID:0000000000000000 ECID:A7D71390001D7493 CPFM:00 SCEP:00 CPRV:0A1 PREV:00 SYSI:0000000000000000"
